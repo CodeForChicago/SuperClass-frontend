@@ -1,7 +1,7 @@
 var Dispatcher = require('../dispatcher/SuperclassDispatcher.js');
 var Constants = require('../constants/SuperclassConstants.js');
 var SessionStore = require('../stores/SessionStore.react.jsx');
-var LessonStore = require('../lessons/LessonStore.react.jsx');
+var LessonStore = require('../stores/LessonStore.react.jsx');
 var EventEmitter = require('events').EventEmitter;
 var assign = require('object-assign');
 
@@ -13,7 +13,7 @@ var router = Router.create({
   location: null // Router.HistoryLocation
 });
 
-var ActionTypes = SmallConstants.ActionTypes;
+var ActionTypes = Constants.ActionTypes;
 var CHANGE_EVENT = 'change';
 
 var RouteStore = assign({}, EventEmitter.prototype, {

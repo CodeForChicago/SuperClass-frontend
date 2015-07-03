@@ -2,7 +2,7 @@
 var SuperclassDispatcher = require('../dispatcher/SuperclassDispatcher.js');
 var SuperclassConstants = require('../constants/SuperclassConstants.js');
 var EventEmitter = require('events').EventEmitter;
-var assign = require('obect-assign');
+var assign = require('object-assign');
 
 var ActionTypes = SuperclassConstants.ActionTypes;
 var CHANGE_EVENT = 'change';

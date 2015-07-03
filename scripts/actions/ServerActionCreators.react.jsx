@@ -1,7 +1,7 @@
 //ServerActionCreators.react.jsx
 
 var SuperclassDispatcher = require('../dispatcher/SuperclassDispatcher.js');
-var SuperclassConstants = require('../constants/SuperclasConstants.js');
+var SuperclassConstants = require('../constants/SuperclassConstants.js');
 
 var ActionTypes = SuperclassConstants.ActionTypes;
 
