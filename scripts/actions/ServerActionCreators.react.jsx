@@ -1,0 +1,41 @@
+//ServerActionCreators.react.jsx
+
+var SuperclassDispatcher = require('../dispatcher/SuperclassDispatcher.js');
+var SuperclassConstants = require('../constants/SuperclasConstants.js');
+
+var ActionTypes = SuperclassConstants.ActionTypes;
+
+ActionCreator = {
+
+	receiveLogin: function (jsonLoginInfo, errors) {
+		SuperclassDispatcher.handleServerAction({
+			type: ActionTypes.LOGIN_RESPONSE,
+			json: jsonLoginInfo,
+			errors: errors
+		});
+	},
+
+  receiveLessons: function (json) {
+    SuperclassDispatcher.handleServerAction({
+      type: ActionTypes.RECEIVE_LESSON,
+      json: json
+    });
+  },
+
+  receiveLesson: function (json) {
+    SuperclassDispatcher.handleServerAction({
+      type: ActionTypes.RECEIVE_LESSON,
+      json: json
+    });
+  },
+
+  receiveCreatedLesson: function (json, errors){
+    SuperclassDispatcher.handleServerAction({
+      type: ActionTypes.RECEIVE_CREATED_LESSON,
+      json: json,
+      errors: errors
+    });
+  }
+};
+
+module.exports = ActionCreator;
