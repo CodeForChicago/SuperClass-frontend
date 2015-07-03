@@ -52,7 +52,7 @@ var LessonItem = React.createClass({
             {this.props.lesson.title}
           </Link>
         </div>
-        <div className="lesson__summary">{this.props.lesson.summary}...</div>
+        <div className="lesson__summary">{this.props.lesson.summary}</div>
         <span className="lesson__creator">{this.props.lesson.creator}</span>
       </li>
     );
