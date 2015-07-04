@@ -63,6 +63,7 @@ WebAPIUtils = {
   },
 
   loadLessons: function() {
+    //debugger;
     request.get(APIEndpoints.LESSONS)
       .set('Accept', 'application/json')
       .set('Authorization', sessionStorage.getItem('accessToken'))

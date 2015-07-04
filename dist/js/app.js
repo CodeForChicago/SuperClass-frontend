@@ -26014,7 +26014,7 @@ module.exports = LessonPage;
 var React = require('react');
 var LessonStore = require('../../stores/LessonStore.react.jsx');
 var ErrorNotice = require('../../components/common/ErrorNotice.react.jsx');
-var StoryActionCreators = require('../../actions/LessonActionCreators.react.jsx');
+var LessonActionCreators = require('../../actions/LessonActionCreators.react.jsx');
 var Router = require('react-router');
 var Link = Router.Link;
 
@@ -26029,7 +26029,7 @@ var LessonsPage = React.createClass({displayName: "LessonsPage",
 
   componentDidMount: function() {
     LessonStore.addChangeListener(this._onChange);
-    StoryActionCreators.loadLessons();
+    LessonActionCreators.loadLessons();
   },
 
   componentWillUnmount: function() {
@@ -26065,7 +26065,7 @@ var LessonItem = React.createClass({displayName: "LessonItem",
             this.props.lesson.title
           )
         ), 
-        React.createElement("div", {className: "lesson__summary"}, this.props.lesson.summary, "..."), 
+        React.createElement("div", {className: "lesson__summary"}, this.props.lesson.summary), 
         React.createElement("span", {className: "lesson__creator"}, this.props.lesson.creator)
       )
     );
@@ -26231,7 +26231,7 @@ Constants = {
 	APIEndpoints: {
 		LOGIN: 			APIRoot + "/v1/login",
 		REGISTRATION: 	APIRoot + "/v1/users",
-		STORIES: 		APIRoot + "/v1/lessons"
+		LESSONS: 		APIRoot + "/v1/lessons"
 	},
 
 	ActionTypes: keyMirror({
@@ -26630,6 +26630,7 @@ WebAPIUtils = {
   },
 
   loadLessons: function() {
+    //debugger;
     request.get(APIEndpoints.LESSONS)
       .set('Accept', 'application/json')
       .set('Authorization', sessionStorage.getItem('accessToken'))

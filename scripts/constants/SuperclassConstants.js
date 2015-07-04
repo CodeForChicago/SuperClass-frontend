@@ -8,7 +8,7 @@ Constants = {
 	APIEndpoints: {
 		LOGIN: 			APIRoot + "/v1/login",
 		REGISTRATION: 	APIRoot + "/v1/users",
-		STORIES: 		APIRoot + "/v1/lessons"
+		LESSONS: 		APIRoot + "/v1/lessons"
 	},
 
 	ActionTypes: keyMirror({
