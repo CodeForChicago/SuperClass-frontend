@@ -36,7 +36,7 @@ var LessonNew = React.createClass({
             <input type="text" placeholder="Link" name="link" ref="link" />
           </div>
           <div className="new-lesson__summary">
-            <textarea rows="10" placeholder="Summary fo lesson..." name="summary" ref="summary" />
+            <textarea rows="10" placeholder="Summary for lesson..." name="summary" ref="summary" />
           </div>
           <div className="new-lesson__submit">
             <button type="submit">Create</button>

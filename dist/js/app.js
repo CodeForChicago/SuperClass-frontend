@@ -25713,7 +25713,7 @@ ActionCreator = {
 
   receiveLessons: function (json) {
     SuperclassDispatcher.handleServerAction({
-      type: ActionTypes.RECEIVE_LESSON,
+      type: ActionTypes.RECEIVE_LESSONS,
       json: json
     });
   },
@@ -25947,7 +25947,7 @@ var LessonNew = React.createClass({displayName: "LessonNew",
             React.createElement("input", {type: "text", placeholder: "Link", name: "link", ref: "link"})
           ), 
           React.createElement("div", {className: "new-lesson__summary"}, 
-            React.createElement("textarea", {rows: "10", placeholder: "Summary fo lesson...", name: "summary", ref: "summary"})
+            React.createElement("textarea", {rows: "10", placeholder: "Summary for lesson...", name: "summary", ref: "summary"})
           ), 
           React.createElement("div", {className: "new-lesson__submit"}, 
             React.createElement("button", {type: "submit"}, "Create")
@@ -25999,7 +25999,7 @@ var LessonPage = React.createClass({displayName: "LessonPage",
       React.createElement("div", {className: "row"}, 
         React.createElement("div", {className: "lesson__title"}, this.state.lesson.title), 
         React.createElement("div", {className: "lesson__creator"}, this.state.lesson.creator), 
-        React.createElement("a", {href: this.state.lesson.link}, "Learn Here!"), 
+        React.createElement("a", {href: this.state.lesson.link, target: "_blank"}, "Learn Here!"), 
         React.createElement("div", {className: "lesson__summary"}, this.state.lesson.summary)
       )
     );

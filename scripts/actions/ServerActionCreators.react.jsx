@@ -17,7 +17,7 @@ ActionCreator = {
 
   receiveLessons: function (json) {
     SuperclassDispatcher.handleServerAction({
-      type: ActionTypes.RECEIVE_LESSON,
+      type: ActionTypes.RECEIVE_LESSONS,
       json: json
     });
   },

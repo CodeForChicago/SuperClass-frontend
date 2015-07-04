@@ -35,7 +35,7 @@ var LessonPage = React.createClass({
       <div className="row">
         <div className="lesson__title">{this.state.lesson.title}</div>
         <div className="lesson__creator">{this.state.lesson.creator}</div>
-        <a href={this.state.lesson.link}>Learn Here!</a>
+        <a href={this.state.lesson.link} target="_blank">Learn Here!</a>
         <div className="lesson__summary">{this.state.lesson.summary}</div>
       </div>
     );
