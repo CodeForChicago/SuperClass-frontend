@@ -56,8 +56,8 @@ var QuestionItem = React.createClass({
       <div className="question__info">
         Author: {this.props.question.author}, Created: {timeago(this.props.question.created_at)}, Responses: {this.props.question.responsecount}, Reputation: {this.props.question.repcount} 
       </div>
-      <div className="question__body">
-        {this.props.question.body}
+      <div className="question__summary">
+        {this.props.question.summary}
       </div>
     </li>
   }
