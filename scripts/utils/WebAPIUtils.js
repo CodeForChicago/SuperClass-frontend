@@ -1,5 +1,4 @@
 //WebAPIUtil.js
-
 var ServerActionCreators = require('../actions/ServerActionCreators.react.jsx');
 var SuperclassConstants = require('../constants/SuperclassConstants.js');
 var request = require('superagent');
@@ -63,7 +62,6 @@ WebAPIUtils = {
   },
 
   loadLessons: function() {
-    //debugger;
     request.get(APIEndpoints.LESSONS)
       .set('Accept', 'application/json')
       .set('Authorization', sessionStorage.getItem('accessToken'))
@@ -102,6 +100,48 @@ WebAPIUtils = {
           } else {
             json = JSON.parse(res.text);
             ServerActionCreators.receiveCreatedLesson( json, null);
+          }
+        }
+      });
+  },
+  
+  loadQuestions: function() { //TODO: separate by class
+    request.get(APIEndpoints.QUESTIONS)
+      .set('Accept', 'application/json') //Gatekeeper
+      .set('Authorization', sessionStorage.getItem('accessToken')) //Key
+      .end(function(error, res){
+        if (res) {
+          json = JSON.parse(res.text);
+          ServerActionCreators.receiveQuestions(json);
+        }
+      });
+  },
+  
+  loadQuestion: function(questionId) {
+    request.get(APIEndpoints.QUESTIONS + '/' + questionId)
+      .set('Accept', 'application/json')
+      .set('Authorization', sessionStorage.getItem('accessToken'))
+      .end(function(error, res){
+        if (res) {
+          json = JSON.parse(res.text);
+          ServerActionCreators.receiveQuestion(json);
+        }
+      });
+  },
+  
+  createQuestion: function(title, author, body) {
+    request.post(APIEndpoints.QUESTIONS)
+      .set('Accept', 'application/json')
+      .set('Authorization', sessionStorage.getItem('accessToken'))
+      .send({ question: {title: title, author: author, body: body}})
+      .end( function(error, res) {
+        if (res) {
+          if (res.error) {
+            var errorMsgs = _getErrors(res);
+            ServerActionCreators.receiveCreatedQuestion(null, errorMsgs);
+          } else {
+            json = JSON.parse(res.text);
+            ServerActionCreators.receiveCreatedQuestion(json, null);
           }
         }
       });
