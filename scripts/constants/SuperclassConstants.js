@@ -1,3 +1,4 @@
+/* global Constants */
 //SuperclasConstants
 
 var keyMirror = require('keymirror');
@@ -6,10 +7,12 @@ var APIRoot = "http://localhost:3000";
 
 Constants = {
 	APIEndpoints: {
-		LOGIN: 			APIRoot + "/v1/login",
-		REGISTRATION: 	APIRoot + "/v1/users",
-		LESSONS: 		APIRoot + "/v1/lessons"
+    LOGIN:          APIRoot + "/v1/login",
+		REGISTRATION:   APIRoot + "/v1/users",
+		LESSONS:        APIRoot + "/v1/lessons",
+		QUESTIONS:      APIRoot + "/v1/questions"
 	},
+	// check up on QUESTIONS later
 
 	ActionTypes: keyMirror({
 		// Session
@@ -25,6 +28,14 @@ Constants = {
     RECEIVE_LESSON: null,
     CREATE_LESSON: null,
     RECEIVE_CREATED_LESSON: null,
+    
+    RECEIVE_QUESTIONS: null,
+    RECEIVE_QUESTION: null,
+    RECEIVE_CREATED_QUESTION: null,
+    LOAD_QUESTIONS: null,
+    LOAD_QUESTION: null,
+    CREATE_QUESTION: null,
+    
 
     //Routes
     REDIRECT: null
