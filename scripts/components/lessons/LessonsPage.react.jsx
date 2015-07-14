@@ -31,7 +31,8 @@ var LessonsPage = React.createClass({
   },
 
   render: function() {
-    var errors = (this.state.errors.length > 0) ? <ErrorNotice errors={this.state.errors}/> : <div></div>;
+    var errors = (this.state.errors.length > 0) ? 
+    <ErrorNotice errors={this.state.errors}/> : <div></div>;
     return (
       <div>
         {errors}
