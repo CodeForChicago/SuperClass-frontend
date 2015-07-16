@@ -1,5 +1,9 @@
 var Dispatcher = require('../dispatcher/SuperclassDispatcher.js');
+var EventEmitter = require('events').EventEmitter;
+var Constants = require('../constants/SuperclassConstants.js');
+var assign = require('object-assign');
 
+var ActionTypes = Constants.ActionTypes;
 var CHANGE_EVENT = 'change';
 
 var _questions = [];

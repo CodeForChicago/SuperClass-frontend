@@ -26645,7 +26645,11 @@ module.exports = LessonStore;
 
 },{"../constants/SuperclassConstants.js":221,"../dispatcher/SuperclassDispatcher.js":222,"events":6,"object-assign":12}],225:[function(require,module,exports){
 var Dispatcher = require('../dispatcher/SuperclassDispatcher.js');
+var EventEmitter = require('events').EventEmitter;
+var Constants = require('../constants/SuperclassConstants.js');
+var assign = require('object-assign');
 
+var ActionTypes = Constants.ActionTypes;
 var CHANGE_EVENT = 'change';
 
 var _questions = [];
@@ -26717,7 +26721,7 @@ QuestionStore.dispatchToken = Dispatcher.register(function(payload) {
 });
 
 module.exports = QuestionStore;
-},{"../dispatcher/SuperclassDispatcher.js":222}],226:[function(require,module,exports){
+},{"../constants/SuperclassConstants.js":221,"../dispatcher/SuperclassDispatcher.js":222,"events":6,"object-assign":12}],226:[function(require,module,exports){
 var Dispatcher = require('../dispatcher/SuperclassDispatcher.js');
 var Constants = require('../constants/SuperclassConstants.js');
 var SessionStore = require('../stores/SessionStore.react.jsx');
