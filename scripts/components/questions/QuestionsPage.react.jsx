@@ -47,19 +47,21 @@ var QuestionsPage = React.createClass({
 
 var QuestionItem = React.createClass({
   render: function() {
-    < li className="question">
+  return(
+    <li className="question">
       <div className="question__title">
         <Link to="question" params={ {questionId: this.props.question.id} }>
           {this.props.question.title}
         </Link>
       </div>
       <div className="question__info">
-        Author: {this.props.question.author}, Created: {timeago(this.props.question.created_at)}, Responses: {this.props.question.responsecount}, Reputation: {this.props.question.repcount} 
+        Author: {this.props.question.user}, Created: {timeago(this.props.question.created_at)}, Reputation: {this.props.question.repcount} 
       </div>
       <div className="question__summary">
         {this.props.question.summary}
       </div>
     </li>
+    );
   }
 });
 

@@ -9,7 +9,7 @@ QuestionActionCreators = {
     Dispatcher.handleViewAction({
       type: ActionTypes.LOAD_QUESTIONS
     });
-    WebAPIUtils.loadQuestions(); // write this later
+    WebAPIUtils.loadQuestions();
   },
   
   loadQuestion: function(questionId) {

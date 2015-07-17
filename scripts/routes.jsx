@@ -20,6 +20,7 @@ module.exports = (
     <Route name="lesson" path="/lessons/:lessonId" handler={LessonPage}/>
     <Route name="new-lesson" path="/lesson/new" handler={LessonNew}/>
     <Route name="questions"  path="/questions" handler={QuestionsPage}/>
+    <Route name="question" path="/questions/:questionId" handler={QuestionsPage}/>
   </Route>
 );
 

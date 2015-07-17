@@ -70,7 +70,6 @@ QuestionStore.dispatchToken = Dispatcher.register(function(payload) {
       QuestionStore.emitChange();
       break;
   }
-  
   return true;
 });
 
