@@ -25886,6 +25886,13 @@ ActionCreator = {
       json: json,
       errors: errors
     });
+  },
+  
+  receiveQuestions: function(json) {
+    SuperclassDispatcher.handleServerAction({
+      type: ActionTypes.RECEIVE_QUESTIONS,
+      json: json
+    });
   }
 };
 
