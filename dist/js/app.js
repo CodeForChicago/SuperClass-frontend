@@ -26475,7 +26475,7 @@ Constants = {
     LOGIN:          APIRoot + "/v1/login",
 		REGISTRATION:   APIRoot + "/v1/users",
 		LESSONS:        APIRoot + "/v1/lessons",
-		QUESTIONS:      APIRoot + "/v1/questions"
+		QUESTIONS:      APIRoot + "/questions"
 	},
 	// check up on QUESTIONS later
 
