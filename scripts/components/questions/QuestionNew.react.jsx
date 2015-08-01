@@ -1,14 +1,18 @@
 var React = require('react');
 var QuestionActionCreators = require('../../actions/QuestionActionCreators.react.jsx');
+var RouteActionCreators = require('../../actions/RouteActionCreators.react.jsx');
 
 var QuestionNew = React.createClass({
 
 	_onSubmit: function(e) {
 		e.preventDefault();
 		var title = this.refs.title.getDOMNode().value;
-		var author = this.refs.author.getDOMNode().value;
+		//var author = this.refs.author.getDOMNode().value;
 		var body = this.refs.body.getDOMNode().value;
-		QuestionActionCreators.createQuestion(title, author, body);
+		QuestionActionCreators.createQuestion(title, body);
+		RouteActionCreators.redirect('questions'); // Look into changing
+		//createLesson handles redirection without this final line
+		//we're not sure how
 	},
 
 	render: function () {
@@ -32,3 +36,7 @@ var QuestionNew = React.createClass({
 });
 
 module.exports = QuestionNew;
+
+					/*<div className="new-question__author">
+						<input type="text" placeholder="Author" name="author" ref="author"/>
+					</div>*/

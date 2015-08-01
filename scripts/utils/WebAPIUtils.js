@@ -129,11 +129,12 @@ WebAPIUtils = {
       });
   },
   
-  createQuestion: function(title, author, body) {
+  // removed author because the user who created a question is already tracked
+  createQuestion: function(title, body) {
     request.post(APIEndpoints.QUESTIONS)
       .set('Accept', 'application/json')
       .set('Authorization', sessionStorage.getItem('accessToken'))
-      .send({ question: {title: title, author: author, body: body}})
+      .send({ question: {title: title, /*author: author,*/ body: body}})
       .end( function(error, res) {
         if (res) {
           if (res.error) {

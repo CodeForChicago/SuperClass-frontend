@@ -25814,18 +25814,22 @@ QuestionActionCreators = {
     WebAPIUtils.loadQuestion(questionId);
   },
   
-  createQuestion: function(title, author, body) { //comments, responsecount, repcount) {
+
+
+  //createQuestion: function(title, author, body) { //comments, responsecount, repcount) {
+  // we removed author from the function because the author is already tracked via the user who created the post
+  createQuestion: function(title, body) {
     Dispatcher.handleViewAction({
       type: ActionTypes.CREATE_QUESTION,
       title: title,
-      author: author,
+      //author: author,
       body: body
         //don't include these, they will be null
       //comments: comments,
       //responsecount: responsecount,
       //repcount: repcount
     });
-    WebAPIUtils.createQuestion(title, author, body);
+    WebAPIUtils.createQuestion(title, body);
   }
 };
 
@@ -26268,15 +26272,19 @@ module.exports = LessonsPage;
 },{"../../actions/LessonActionCreators.react.jsx":207,"../../components/common/ErrorNotice.react.jsx":214,"../../stores/LessonStore.react.jsx":226,"react":202,"react-router":22}],218:[function(require,module,exports){
 var React = require('react');
 var QuestionActionCreators = require('../../actions/QuestionActionCreators.react.jsx');
+var RouteActionCreators = require('../../actions/RouteActionCreators.react.jsx');
 
 var QuestionNew = React.createClass({displayName: "QuestionNew",
 
 	_onSubmit: function(e) {
 		e.preventDefault();
 		var title = this.refs.title.getDOMNode().value;
-		var author = this.refs.author.getDOMNode().value;
+		//var author = this.refs.author.getDOMNode().value;
 		var body = this.refs.body.getDOMNode().value;
-		QuestionActionCreators.createQuestion(title, author, body);
+		QuestionActionCreators.createQuestion(title, body);
+		RouteActionCreators.redirect('questions'); // Look into changing
+		//createLesson handles redirection without this final line
+		//we're not sure how
 	},
 
 	render: function () {
@@ -26300,7 +26308,11 @@ var QuestionNew = React.createClass({displayName: "QuestionNew",
 });
 
 module.exports = QuestionNew;
-},{"../../actions/QuestionActionCreators.react.jsx":208,"react":202}],219:[function(require,module,exports){
+
+					/*<div className="new-question__author">
+						<input type="text" placeholder="Author" name="author" ref="author"/>
+					</div>*/
+},{"../../actions/QuestionActionCreators.react.jsx":208,"../../actions/RouteActionCreators.react.jsx":209,"react":202}],219:[function(require,module,exports){
 var React = require('react');
 var QuestionStore = require('../../stores/QuestionStore.react.jsx');
 var QuestionActionCreators = require('../../actions/QuestionActionCreators.react.jsx')
@@ -27128,11 +27140,12 @@ WebAPIUtils = {
       });
   },
   
-  createQuestion: function(title, author, body) {
+  // removed author because the user who created a question is already tracked
+  createQuestion: function(title, body) {
     request.post(APIEndpoints.QUESTIONS)
       .set('Accept', 'application/json')
       .set('Authorization', sessionStorage.getItem('accessToken'))
-      .send({ question: {title: title, author: author, body: body}})
+      .send({ question: {title: title, /*author: author,*/ body: body}})
       .end( function(error, res) {
         if (res) {
           if (res.error) {
