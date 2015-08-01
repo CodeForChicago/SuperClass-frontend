@@ -25993,12 +25993,15 @@ var Header = React.createClass({displayName: "Header",
 
     var leftNav = this.props.isAdmin ? (
       React.createElement("ul", {className: "left"}, 
+        React.createElement("li", null, React.createElement(Link, {to: "new-lesson"}, "New Lesson")), 
         React.createElement("li", null, React.createElement(Link, {to: "lessons"}, "Lessons")), 
-        React.createElement("li", null, React.createElement(Link, {to: "questions"}, "Questions")), 
-        React.createElement("li", null, React.createElement(Link, {to: "new-question"}, "Profile"))
+        React.createElement("li", null, React.createElement(Link, {to: "questions"}, "Questions"))
       )
     ) : (
-      React.createElement("div", null)
+      React.createElement("ul", {className: "left"}, 
+        React.createElement("li", null, React.createElement(Link, {to: "lessons"}, "Lessons")), 
+        React.createElement("li", null, React.createElement(Link, {to: "questions"}, "Questions"))
+      )
     );
 
     return (

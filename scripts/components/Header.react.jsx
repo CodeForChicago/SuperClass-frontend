@@ -34,12 +34,15 @@ var Header = React.createClass({
 
     var leftNav = this.props.isAdmin ? (
       <ul className="left">
+        <li><Link to="new-lesson">New Lesson</Link></li>
         <li><Link to="lessons">Lessons</Link></li>
         <li><Link to="questions">Questions</Link></li>
-        <li><Link to="new-question">Profile</Link></li>
       </ul>
     ) : (
-      <div></div>
+      <ul className="left">
+        <li><Link to="lessons">Lessons</Link></li>
+        <li><Link to="questions">Questions</Link></li>
+      </ul>
     );
 
     return (
