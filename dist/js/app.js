@@ -7,7 +7,7 @@ router.run(function (Handler, state) {
   React.render(React.createElement(Handler, null), document.getElementById('content'));
 });
 
-},{"./stores/RouteStore.react.jsx":226,"react":202}],2:[function(require,module,exports){
+},{"./stores/RouteStore.react.jsx":228,"react":202}],2:[function(require,module,exports){
 /*!
  * The buffer module from node.js, for the browser.
  *
@@ -25791,7 +25791,7 @@ LessonActionCreators = {
 
 module.exports = LessonActionCreators;
 
-},{"../constants/SuperclassConstants.js":221,"../dispatcher/SuperclassDispatcher.js":222,"../utils/WebAPIUtils.js":228}],208:[function(require,module,exports){
+},{"../constants/SuperclassConstants.js":223,"../dispatcher/SuperclassDispatcher.js":224,"../utils/WebAPIUtils.js":230}],208:[function(require,module,exports){
 var Dispatcher = require('../dispatcher/SuperclassDispatcher.js');
 var Constants = require('../constants/SuperclassConstants.js');
 var WebAPIUtils = require('../utils/WebAPIUtils.js');
@@ -25803,7 +25803,7 @@ QuestionActionCreators = {
     Dispatcher.handleViewAction({
       type: ActionTypes.LOAD_QUESTIONS
     });
-    WebAPIUtils.loadQuestions(); // write this later
+    WebAPIUtils.loadQuestions();
   },
   
   loadQuestion: function(questionId) {
@@ -25830,7 +25830,7 @@ QuestionActionCreators = {
 };
 
 module.exports = QuestionActionCreators;
-},{"../constants/SuperclassConstants.js":221,"../dispatcher/SuperclassDispatcher.js":222,"../utils/WebAPIUtils.js":228}],209:[function(require,module,exports){
+},{"../constants/SuperclassConstants.js":223,"../dispatcher/SuperclassDispatcher.js":224,"../utils/WebAPIUtils.js":230}],209:[function(require,module,exports){
 var Dispatcher = require('../dispatcher/SuperclassDispatcher');
 var Constants = require('../constants/SuperclassConstants.js');
 
@@ -25848,7 +25848,7 @@ RouteActionCreators = {
 
 module.exports = RouteActionCreators;
 
-},{"../constants/SuperclassConstants.js":221,"../dispatcher/SuperclassDispatcher":222}],210:[function(require,module,exports){
+},{"../constants/SuperclassConstants.js":223,"../dispatcher/SuperclassDispatcher":224}],210:[function(require,module,exports){
 //ServerActionCreators.react.jsx
 
 var SuperclassDispatcher = require('../dispatcher/SuperclassDispatcher.js');
@@ -25893,12 +25893,27 @@ ActionCreator = {
       type: ActionTypes.RECEIVE_QUESTIONS,
       json: json
     });
+  },
+
+  receiveQuestion: function(json){
+    SuperclassDispatcher.handleServerAction({
+      type: ActionTypes.RECEIVE_QUESTION,
+      json: json
+    })
+  },
+
+  receiveCreatedQuestion: function(json, errors){
+    SuperclassDispatcher.handleServerAction({
+      type: ActionTypes.RECEIVE_CREATED_QUESTION,
+      json: json,
+      errors: errors
+    });
   }
 };
 
 module.exports = ActionCreator;
 
-},{"../constants/SuperclassConstants.js":221,"../dispatcher/SuperclassDispatcher.js":222}],211:[function(require,module,exports){
+},{"../constants/SuperclassConstants.js":223,"../dispatcher/SuperclassDispatcher.js":224}],211:[function(require,module,exports){
 var Dispatcher = require('../dispatcher/SuperclassDispatcher.js');
 var Constants = require('../constants/SuperclassConstants.js');
 var WebAPIUtils = require('../utils/WebAPIUtils.js');
@@ -25937,7 +25952,7 @@ SessionActionCreators = {
 
 module.exports = SessionActionCreators;
 
-},{"../constants/SuperclassConstants.js":221,"../dispatcher/SuperclassDispatcher.js":222,"../utils/WebAPIUtils.js":228}],212:[function(require,module,exports){
+},{"../constants/SuperclassConstants.js":223,"../dispatcher/SuperclassDispatcher.js":224,"../utils/WebAPIUtils.js":230}],212:[function(require,module,exports){
 var React = require('react');
 var Router = require('react-router');
 var Link = Router.Link;
@@ -26051,7 +26066,7 @@ var SuperclassApp = React.createClass({displayName: "SuperclassApp",
 
 module.exports = SuperclassApp;
 
-},{"../components/Header.react.jsx":212,"../stores/RouteStore.react.jsx":226,"../stores/SessionStore.react.jsx":227,"react":202,"react-router":22}],214:[function(require,module,exports){
+},{"../components/Header.react.jsx":212,"../stores/RouteStore.react.jsx":228,"../stores/SessionStore.react.jsx":229,"react":202,"react-router":22}],214:[function(require,module,exports){
 var React = require('react');
 
 var ErrorNotice = React.createClass({displayName: "ErrorNotice",
@@ -26123,7 +26138,7 @@ var LessonNew = React.createClass({displayName: "LessonNew",
 
 module.exports = LessonNew;
 
-},{"../../actions/LessonActionCreators.react.jsx":207,"../../actions/RouteActionCreators.react.jsx":209,"../../constants/SuperclassConstants.js":221,"../../dispatcher/SuperclassDispatcher.js":222,"../../stores/SessionStore.react.jsx":227,"react":202}],216:[function(require,module,exports){
+},{"../../actions/LessonActionCreators.react.jsx":207,"../../actions/RouteActionCreators.react.jsx":209,"../../constants/SuperclassConstants.js":223,"../../dispatcher/SuperclassDispatcher.js":224,"../../stores/SessionStore.react.jsx":229,"react":202}],216:[function(require,module,exports){
 var React = require('react');
 var LessonStore = require('../../stores/LessonStore.react.jsx');
 var LessonActionCreators = require('../../actions/LessonActionCreators.react.jsx');
@@ -26172,7 +26187,7 @@ var LessonPage = React.createClass({displayName: "LessonPage",
 module.exports = LessonPage;
 
 
-},{"../../actions/LessonActionCreators.react.jsx":207,"../../stores/LessonStore.react.jsx":224,"react":202,"react-router":22}],217:[function(require,module,exports){
+},{"../../actions/LessonActionCreators.react.jsx":207,"../../stores/LessonStore.react.jsx":226,"react":202,"react-router":22}],217:[function(require,module,exports){
 var React = require('react');
 var LessonStore = require('../../stores/LessonStore.react.jsx');
 var ErrorNotice = require('../../components/common/ErrorNotice.react.jsx');
@@ -26250,7 +26265,87 @@ var LessonsList = React.createClass({displayName: "LessonsList",
 module.exports = LessonsPage;
 
 
-},{"../../actions/LessonActionCreators.react.jsx":207,"../../components/common/ErrorNotice.react.jsx":214,"../../stores/LessonStore.react.jsx":224,"react":202,"react-router":22}],218:[function(require,module,exports){
+},{"../../actions/LessonActionCreators.react.jsx":207,"../../components/common/ErrorNotice.react.jsx":214,"../../stores/LessonStore.react.jsx":226,"react":202,"react-router":22}],218:[function(require,module,exports){
+var React = require('react');
+var QuestionActionCreators = require('../../actions/QuestionActionCreators.react.jsx');
+
+var QuestionNew = React.createClass({displayName: "QuestionNew",
+
+	_onSubmit: function(e) {
+		e.preventDefault();
+		var title = this.refs.title.getDOMNode().value;
+		var author = this.refs.author.getDOMNode().value;
+		var body = this.refs.body.getDOMNode().value;
+		QuestionActionCreators.createQuestion(title, author, body);
+	},
+
+	render: function () {
+		return (
+			React.createElement("div", {className: "row"}, 
+				React.createElement("form", {onSubmit: this._onSubmit, className: "new-question"}, 
+					React.createElement("div", {className: "new-question__title"}, 
+						React.createElement("input", {type: "test", placeholder: "Title", name: "title", ref: "title"})
+					), 
+					React.createElement("div", {className: "new-question__body"}, 
+						React.createElement("input", {type: "text", placeholder: "Body", name: "body", ref: "body"})
+					), 
+					React.createElement("div", {className: "new-question__submit"}, 
+						React.createElement("button", {type: "submit"}, "Post")
+					)
+				)
+			)
+		);
+	}
+
+});
+
+module.exports = QuestionNew;
+},{"../../actions/QuestionActionCreators.react.jsx":208,"react":202}],219:[function(require,module,exports){
+var React = require('react');
+var QuestionStore = require('../../stores/QuestionStore.react.jsx');
+var QuestionActionCreators = require('../../actions/QuestionActionCreators.react.jsx')
+var State = require('react-router').State;
+
+var QuestionPage = React.createClass({displayName: "QuestionPage",
+
+	mixins: [ State ],
+
+	getInitialState: function() {
+		return {
+			question: QuestionStore.getQuestion(),
+			errors: []
+		}
+	},
+
+	componentDidMount: function() {
+		QuestionStore.addChangeListener(this._onChange);
+		QuestionActionCreators.loadQuestion(this.getParams().questionId);
+	},
+
+	componentWillUnmount: function() {
+		QuestionStore.removeChangeListener(this._onChange);
+	},
+
+	_onChange: function() {
+		this.setState({
+			question: QuestionStore.getQuestion(),
+			errors: QuestionStore.getErrors()
+		});
+	},
+
+	render: function() {
+		return (
+			React.createElement("div", {className: "row"}, 
+				React.createElement("div", {className: "question__title"}, this.state.question.title), 
+				React.createElement("div", {className: "question__author"}, this.state.question.user), 
+				React.createElement("div", {className: "question__body"}, this.state.question.body)
+			)
+		);
+	}
+});
+
+module.exports = QuestionPage;
+},{"../../actions/QuestionActionCreators.react.jsx":208,"../../stores/QuestionStore.react.jsx":227,"react":202,"react-router":22}],220:[function(require,module,exports){
 var React = require('react');
 var QuestionStore = require('../../stores/QuestionStore.react.jsx');
 var QuestionActionCreators = require('../../actions/QuestionActionCreators.react.jsx');
@@ -26300,6 +26395,7 @@ var QuestionsPage = React.createClass({displayName: "QuestionsPage",
 
 var QuestionItem = React.createClass({displayName: "QuestionItem",
   render: function() {
+  return(
     React.createElement("li", {className: "question"}, 
       React.createElement("div", {className: "question__title"}, 
         React.createElement(Link, {to: "question", params:  {questionId: this.props.question.id} }, 
@@ -26307,12 +26403,13 @@ var QuestionItem = React.createClass({displayName: "QuestionItem",
         )
       ), 
       React.createElement("div", {className: "question__info"}, 
-        "Author: ", this.props.question.author, ", Created: ", timeago(this.props.question.created_at), ", Responses: ", this.props.question.responsecount, ", Reputation: ", this.props.question.repcount
+        "Author: ", this.props.question.user, ", Created: ", timeago(this.props.question.created_at), ", Reputation: ", this.props.question.repcount
       ), 
       React.createElement("div", {className: "question__summary"}, 
         this.props.question.summary
       )
     )
+    );
   }
 });
 
@@ -26329,7 +26426,7 @@ var QuestionsList = React.createClass({displayName: "QuestionsList",
 });
 
 module.exports = QuestionsPage;
-},{"../../actions/QuestionActionCreators.react.jsx":208,"../../components/common/ErrorNotice.react.jsx":214,"../../stores/QuestionStore.react.jsx":225,"react":202,"react-router":22,"timeago":206}],219:[function(require,module,exports){
+},{"../../actions/QuestionActionCreators.react.jsx":208,"../../components/common/ErrorNotice.react.jsx":214,"../../stores/QuestionStore.react.jsx":227,"react":202,"react-router":22,"timeago":206}],221:[function(require,module,exports){
 var React = require('react');
 var SessionActionCreators = require('../../actions/SessionActionCreators.react.jsx');
 var SessionStore = require('../../stores/SessionStore.react.jsx');
@@ -26389,7 +26486,7 @@ var LoginPage = React.createClass({displayName: "LoginPage",
 module.exports = LoginPage;
 
 
-},{"../../actions/SessionActionCreators.react.jsx":211,"../../components/common/ErrorNotice.react.jsx":214,"../../stores/SessionStore.react.jsx":227,"react":202}],220:[function(require,module,exports){
+},{"../../actions/SessionActionCreators.react.jsx":211,"../../components/common/ErrorNotice.react.jsx":214,"../../stores/SessionStore.react.jsx":229,"react":202}],222:[function(require,module,exports){
 var React = require('react');
 var SessionActionCreators = require('../../actions/SessionActionCreators.react.jsx');
 var SessionStore = require('../../stores/SessionStore.react.jsx');
@@ -26462,7 +26559,7 @@ var SignupPage = React.createClass({displayName: "SignupPage",
 
 module.exports = SignupPage;
 
-},{"../../actions/SessionActionCreators.react.jsx":211,"../../components/common/ErrorNotice.react.jsx":214,"../../stores/SessionStore.react.jsx":227,"react":202}],221:[function(require,module,exports){
+},{"../../actions/SessionActionCreators.react.jsx":211,"../../components/common/ErrorNotice.react.jsx":214,"../../stores/SessionStore.react.jsx":229,"react":202}],223:[function(require,module,exports){
 /* global Constants */
 //SuperclasConstants
 
@@ -26494,13 +26591,12 @@ Constants = {
     CREATE_LESSON: null,
     RECEIVE_CREATED_LESSON: null,
     
-    RECEIVE_QUESTIONS: null,
-    RECEIVE_QUESTION: null,
-    RECEIVE_CREATED_QUESTION: null,
     LOAD_QUESTIONS: null,
+    RECEIVE_QUESTIONS: null,
     LOAD_QUESTION: null,
+    RECEIVE_QUESTION: null,
     CREATE_QUESTION: null,
-    
+    RECEIVE_CREATED_QUESTION: null,
 
     //Routes
     REDIRECT: null
@@ -26515,7 +26611,7 @@ Constants = {
 
 module.exports = Constants;
 
-},{"keymirror":11}],222:[function(require,module,exports){
+},{"keymirror":11}],224:[function(require,module,exports){
 //SuperclassDispatcher.js
 
 var SuperclassConstants = require('../constants/SuperclassConstants.js');
@@ -26543,7 +26639,7 @@ var SuperclassDispatcher = assign(new Dispatcher(),{
 });
 
 module.exports = SuperclassDispatcher;
-},{"../constants/SuperclassConstants.js":221,"flux":8,"object-assign":12}],223:[function(require,module,exports){
+},{"../constants/SuperclassConstants.js":223,"flux":8,"object-assign":12}],225:[function(require,module,exports){
 var React = require('react');
 var Router = require('react-router');
 var Route = Router.Route;
@@ -26555,7 +26651,9 @@ var LoginPage = require('./components/session/LoginPage.react.jsx');
 var LessonsPage = require('./components/lessons/LessonsPage.react.jsx');
 var LessonPage = require('./components/lessons/LessonPage.react.jsx');
 var LessonNew = require('./components/lessons/LessonNew.react.jsx');
-var QuestionsPage = require('./components/questions/QuestionsPage.react.jsx')
+var QuestionsPage = require('./components/questions/QuestionsPage.react.jsx');
+var QuestionPage = require('./components/questions/QuestionPage.react.jsx');
+var QuestionNew = require('./components/questions/QuestionNew.react.jsx');
 
 module.exports = (
   React.createElement(Route, {name: "app", path: "/", handler: SuperclassApp}, 
@@ -26565,12 +26663,14 @@ module.exports = (
     React.createElement(Route, {name: "lessons", path: "/lessons", handler: LessonsPage}), 
     React.createElement(Route, {name: "lesson", path: "/lessons/:lessonId", handler: LessonPage}), 
     React.createElement(Route, {name: "new-lesson", path: "/lesson/new", handler: LessonNew}), 
-    React.createElement(Route, {name: "questions", path: "/questions", handler: QuestionsPage})
+    React.createElement(Route, {name: "questions", path: "/questions", handler: QuestionsPage}), 
+    React.createElement(Route, {name: "question", path: "/questions/:questionId", handler: QuestionPage}), 
+    React.createElement(Route, {name: "new-question", path: "/question/new", handler: QuestionNew})
   )
 );
 
 
-},{"./components/SuperclassApp.react.jsx":213,"./components/lessons/LessonNew.react.jsx":215,"./components/lessons/LessonPage.react.jsx":216,"./components/lessons/LessonsPage.react.jsx":217,"./components/questions/QuestionsPage.react.jsx":218,"./components/session/LoginPage.react.jsx":219,"./components/session/SignupPage.react.jsx":220,"react":202,"react-router":22}],224:[function(require,module,exports){
+},{"./components/SuperclassApp.react.jsx":213,"./components/lessons/LessonNew.react.jsx":215,"./components/lessons/LessonPage.react.jsx":216,"./components/lessons/LessonsPage.react.jsx":217,"./components/questions/QuestionNew.react.jsx":218,"./components/questions/QuestionPage.react.jsx":219,"./components/questions/QuestionsPage.react.jsx":220,"./components/session/LoginPage.react.jsx":221,"./components/session/SignupPage.react.jsx":222,"react":202,"react-router":22}],226:[function(require,module,exports){
 var Dispatcher = require('../dispatcher/SuperclassDispatcher.js');
 var Constants = require('../constants/SuperclassConstants.js');
 var EventEmitter = require('events').EventEmitter;
@@ -26650,7 +26750,7 @@ LessonStore.dispatchToken = Dispatcher.register(function(payload) {
 
 module.exports = LessonStore;
 
-},{"../constants/SuperclassConstants.js":221,"../dispatcher/SuperclassDispatcher.js":222,"events":6,"object-assign":12}],225:[function(require,module,exports){
+},{"../constants/SuperclassConstants.js":223,"../dispatcher/SuperclassDispatcher.js":224,"events":6,"object-assign":12}],227:[function(require,module,exports){
 var Dispatcher = require('../dispatcher/SuperclassDispatcher.js');
 var EventEmitter = require('events').EventEmitter;
 var Constants = require('../constants/SuperclassConstants.js');
@@ -26681,8 +26781,8 @@ var QuestionStore = assign({}, EventEmitter.prototype, {
     return _questions;
   },
   
-  getLesson: function() {
-    return _lesson;
+  getQuestion: function() {
+    return _question;
   },
   
   getErrors: function() {
@@ -26723,12 +26823,11 @@ QuestionStore.dispatchToken = Dispatcher.register(function(payload) {
       QuestionStore.emitChange();
       break;
   }
-  
   return true;
 });
 
 module.exports = QuestionStore;
-},{"../constants/SuperclassConstants.js":221,"../dispatcher/SuperclassDispatcher.js":222,"events":6,"object-assign":12}],226:[function(require,module,exports){
+},{"../constants/SuperclassConstants.js":223,"../dispatcher/SuperclassDispatcher.js":224,"events":6,"object-assign":12}],228:[function(require,module,exports){
 var Dispatcher = require('../dispatcher/SuperclassDispatcher.js');
 var Constants = require('../constants/SuperclassConstants.js');
 var SessionStore = require('../stores/SessionStore.react.jsx');
@@ -26802,7 +26901,7 @@ RouteStore.dispatchToken = Dispatcher.register( function(payload) {
 
 module.exports = RouteStore;
 
-},{"../constants/SuperclassConstants.js":221,"../dispatcher/SuperclassDispatcher.js":222,"../routes.jsx":223,"../stores/LessonStore.react.jsx":224,"../stores/SessionStore.react.jsx":227,"events":6,"object-assign":12,"react-router":22}],227:[function(require,module,exports){
+},{"../constants/SuperclassConstants.js":223,"../dispatcher/SuperclassDispatcher.js":224,"../routes.jsx":225,"../stores/LessonStore.react.jsx":226,"../stores/SessionStore.react.jsx":229,"events":6,"object-assign":12,"react-router":22}],229:[function(require,module,exports){
 //SessionStore.react.jsx
 var SuperclassDispatcher = require('../dispatcher/SuperclassDispatcher.js');
 var SuperclassConstants = require('../constants/SuperclassConstants.js');
@@ -26897,7 +26996,7 @@ SessionStore.dispatchToken = SuperclassDispatcher.register(function(payload) {
 
 module.exports = SessionStore;
 
-},{"../constants/SuperclassConstants.js":221,"../dispatcher/SuperclassDispatcher.js":222,"events":6,"object-assign":12}],228:[function(require,module,exports){
+},{"../constants/SuperclassConstants.js":223,"../dispatcher/SuperclassDispatcher.js":224,"events":6,"object-assign":12}],230:[function(require,module,exports){
 //WebAPIUtil.js
 var ServerActionCreators = require('../actions/ServerActionCreators.react.jsx');
 var SuperclassConstants = require('../constants/SuperclassConstants.js');
@@ -27052,4 +27151,4 @@ WebAPIUtils = {
 
 module.exports = WebAPIUtils;
 
-},{"../actions/ServerActionCreators.react.jsx":210,"../constants/SuperclassConstants.js":221,"superagent":203}]},{},[1]);
+},{"../actions/ServerActionCreators.react.jsx":210,"../constants/SuperclassConstants.js":223,"superagent":203}]},{},[1]);

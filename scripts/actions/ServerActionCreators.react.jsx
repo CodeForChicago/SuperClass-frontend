@@ -42,6 +42,21 @@ ActionCreator = {
       type: ActionTypes.RECEIVE_QUESTIONS,
       json: json
     });
+  },
+
+  receiveQuestion: function(json){
+    SuperclassDispatcher.handleServerAction({
+      type: ActionTypes.RECEIVE_QUESTION,
+      json: json
+    })
+  },
+
+  receiveCreatedQuestion: function(json, errors){
+    SuperclassDispatcher.handleServerAction({
+      type: ActionTypes.RECEIVE_CREATED_QUESTION,
+      json: json,
+      errors: errors
+    });
   }
 };
 

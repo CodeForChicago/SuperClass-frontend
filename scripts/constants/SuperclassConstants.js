@@ -29,13 +29,12 @@ Constants = {
     CREATE_LESSON: null,
     RECEIVE_CREATED_LESSON: null,
     
-    RECEIVE_QUESTIONS: null,
-    RECEIVE_QUESTION: null,
-    RECEIVE_CREATED_QUESTION: null,
     LOAD_QUESTIONS: null,
+    RECEIVE_QUESTIONS: null,
     LOAD_QUESTION: null,
+    RECEIVE_QUESTION: null,
     CREATE_QUESTION: null,
-    
+    RECEIVE_CREATED_QUESTION: null,
 
     //Routes
     REDIRECT: null

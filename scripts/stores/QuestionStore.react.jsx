@@ -28,8 +28,8 @@ var QuestionStore = assign({}, EventEmitter.prototype, {
     return _questions;
   },
   
-  getLesson: function() {
-    return _lesson;
+  getQuestion: function() {
+    return _question;
   },
   
   getErrors: function() {
