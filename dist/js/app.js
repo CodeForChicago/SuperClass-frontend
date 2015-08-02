@@ -25970,10 +25970,12 @@ var Header = React.createClass({displayName: "Header",
     email: ReactPropTypes.string,
     userRole: ReactPropTypes.string
   },
+
   logout: function(e) {
     e.preventDefault();
     SessionActionCreators.logout();
   },
+
   render: function() {
     var rightNav = this.props.isLoggedIn ? (
       React.createElement("ul", {className: "right"}, 
@@ -25995,6 +25997,7 @@ var Header = React.createClass({displayName: "Header",
       React.createElement("ul", {className: "left"}, 
         React.createElement("li", null, React.createElement(Link, {to: "new-lesson"}, "New Lesson")), 
         React.createElement("li", null, React.createElement(Link, {to: "lessons"}, "Lessons")), 
+        React.createElement("li", null, React.createElement(Link, {to: "new-question"}, "New Question")), 
         React.createElement("li", null, React.createElement(Link, {to: "questions"}, "Questions"))
       )
     ) : (
@@ -26023,7 +26026,6 @@ var Header = React.createClass({displayName: "Header",
 });
 
 module.exports = Header;
-
 },{"../actions/SessionActionCreators.react.jsx":211,"react":202,"react-router":22}],213:[function(require,module,exports){
 var React = require('react');
 var RouteHandler = require('react-router').RouteHandler;
@@ -26367,12 +26369,14 @@ var React = require('react');
 var QuestionStore = require('../../stores/QuestionStore.react.jsx');
 var QuestionActionCreators = require('../../actions/QuestionActionCreators.react.jsx');
 var ErrorNotice = require('../../components/common/ErrorNotice.react.jsx');
+var RouteActionCreators = require('../../actions/RouteActionCreators.react.jsx');
+//var Header = require('../Header.react.jsx');
 var Router = require('react-router');
 var Link = Router.Link;
 var timeago = require('timeago');
 
 var QuestionsPage = React.createClass({displayName: "QuestionsPage",
-  
+
   getInitialState: function(){
     return {
       questions: QuestionStore.getAllQuestions(),
@@ -26395,8 +26399,15 @@ var QuestionsPage = React.createClass({displayName: "QuestionsPage",
       errors: QuestionStore.getErrors()
     });
   },
-  
+
   render: function() {
+    /*var newQuestionButton = Header.loggedIn ? (
+      <div className="submit">
+        <Link to="new-question">New Questions</Link>
+      </div>
+    ) : (
+      <div>Hullo</div>
+    );*/
     var errors = (this.state.errors.length > 0) ? 
       React.createElement(ErrorNotice, {errors: this.state.errors}) : React.createElement("div", null);
     return (
@@ -26443,7 +26454,7 @@ var QuestionsList = React.createClass({displayName: "QuestionsList",
 });
 
 module.exports = QuestionsPage;
-},{"../../actions/QuestionActionCreators.react.jsx":208,"../../components/common/ErrorNotice.react.jsx":214,"../../stores/QuestionStore.react.jsx":227,"react":202,"react-router":22,"timeago":206}],221:[function(require,module,exports){
+},{"../../actions/QuestionActionCreators.react.jsx":208,"../../actions/RouteActionCreators.react.jsx":209,"../../components/common/ErrorNotice.react.jsx":214,"../../stores/QuestionStore.react.jsx":227,"react":202,"react-router":22,"timeago":206}],221:[function(require,module,exports){
 var React = require('react');
 var SessionActionCreators = require('../../actions/SessionActionCreators.react.jsx');
 var SessionStore = require('../../stores/SessionStore.react.jsx');

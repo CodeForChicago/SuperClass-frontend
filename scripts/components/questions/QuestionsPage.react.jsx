@@ -2,12 +2,14 @@ var React = require('react');
 var QuestionStore = require('../../stores/QuestionStore.react.jsx');
 var QuestionActionCreators = require('../../actions/QuestionActionCreators.react.jsx');
 var ErrorNotice = require('../../components/common/ErrorNotice.react.jsx');
+var RouteActionCreators = require('../../actions/RouteActionCreators.react.jsx');
+//var Header = require('../Header.react.jsx');
 var Router = require('react-router');
 var Link = Router.Link;
 var timeago = require('timeago');
 
 var QuestionsPage = React.createClass({
-  
+
   getInitialState: function(){
     return {
       questions: QuestionStore.getAllQuestions(),
@@ -30,13 +32,20 @@ var QuestionsPage = React.createClass({
       errors: QuestionStore.getErrors()
     });
   },
-  
+
   render: function() {
+    /*var newQuestionButton = Header.loggedIn ? (
+      <div className="submit">
+        <Link to="new-question">New Questions</Link>
+      </div>
+    ) : (
+      <div>Hullo</div>
+    );*/
     var errors = (this.state.errors.length > 0) ? 
       <ErrorNotice errors={this.state.errors}/> : <div></div>;
     return (
       <div>
-        {errors}
+        { errors }
         <div className="row">
           <QuestionsList questions={this.state.questions} />
         </div>

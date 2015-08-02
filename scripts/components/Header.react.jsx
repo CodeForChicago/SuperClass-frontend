@@ -11,10 +11,12 @@ var Header = React.createClass({
     email: ReactPropTypes.string,
     userRole: ReactPropTypes.string
   },
+
   logout: function(e) {
     e.preventDefault();
     SessionActionCreators.logout();
   },
+
   render: function() {
     var rightNav = this.props.isLoggedIn ? (
       <ul className="right">
@@ -36,6 +38,7 @@ var Header = React.createClass({
       <ul className="left">
         <li><Link to="new-lesson">New Lesson</Link></li>
         <li><Link to="lessons">Lessons</Link></li>
+        <li><Link to="new-question">New Question</Link></li>
         <li><Link to="questions">Questions</Link></li>
       </ul>
     ) : (
