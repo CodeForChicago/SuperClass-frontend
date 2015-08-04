@@ -3,6 +3,8 @@ var React = require('react');
 var router = require('./stores/RouteStore.react.jsx').getRouter();
 window.React = React;
 
+
+
 router.run(function (Handler, state) {
   React.render(React.createElement(Handler, null), document.getElementById('content'));
 });
