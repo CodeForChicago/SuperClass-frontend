@@ -8,7 +8,7 @@ var CHANGE_EVENT = 'change';
 
 var _questions = [];
 var _errors = [];
-var _question = { title: "", author: "", comments: [], body: "", responsecount: 0, repcount: 0  };
+var _question = { title: "", author: "", comments: {}, body: "", responsecount: 0, repcount: 0  };
 
 var QuestionStore = assign({}, EventEmitter.prototype, {
   
