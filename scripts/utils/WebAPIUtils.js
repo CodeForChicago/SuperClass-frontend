@@ -146,8 +146,11 @@ WebAPIUtils = {
           }
         }
       });
-  }
+  },
 
+  createComment: function(body, question_id) {
+
+  }
 };
 
 

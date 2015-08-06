@@ -36,6 +36,8 @@ Constants = {
     CREATE_QUESTION: null,
     RECEIVE_CREATED_QUESTION: null,
 
+    CREATE_COMMENT: null,
+
     //Routes
     REDIRECT: null
 

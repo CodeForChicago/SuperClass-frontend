@@ -7,7 +7,6 @@ var QuestionNew = React.createClass({
 	_onSubmit: function(e) {
 		e.preventDefault();
 		var title = this.refs.title.getDOMNode().value;
-		//var author = this.refs.author.getDOMNode().value;
 		var body = this.refs.body.getDOMNode().value;
 		QuestionActionCreators.createQuestion(title, body);
 		RouteActionCreators.redirect('questions'); // Look into changing

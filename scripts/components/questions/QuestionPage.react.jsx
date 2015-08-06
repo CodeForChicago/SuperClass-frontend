@@ -1,6 +1,7 @@
 var React = require('react');
 var QuestionStore = require('../../stores/QuestionStore.react.jsx');
 var QuestionActionCreators = require('../../actions/QuestionActionCreators.react.jsx');
+var CommentActionCreators = require('../../actions/CommentActionCreators.react.jsx');
 var State = require('react-router').State;
 
 var QuestionPage = React.createClass({
@@ -30,11 +31,12 @@ var QuestionPage = React.createClass({
 		});
 	},
 
-	/*_onSubmit: function(e) {
+	_onSubmit: function(e) {
 		e.preventDefault();
 		var commentBody = this.refs.body.getDOMNode().value;
-
-	},*/
+		CommentActionCreators.createComment(commentBody, this.getParams().questionId);
+		//QuestionActionCreators.addComment(newComment);
+	},
 
 	render: function() {
 		var CommentItem = this.state.question.comments.length ? (
