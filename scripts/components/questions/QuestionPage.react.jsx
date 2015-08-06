@@ -32,11 +32,8 @@ var QuestionPage = React.createClass({
 
 	/*_onSubmit: function(e) {
 		e.preventDefault();
-		var commentBody = 
-		<div className="row">
-				<form onSubmit={this._onSubmit} className="new-comment">
-					<div class
-			</div>
+		var commentBody = this.refs.body.getDOMNode().value;
+
 	},*/
 
 	render: function() {
@@ -53,6 +50,16 @@ var QuestionPage = React.createClass({
 				<div className="question__comments">
 					<div className="comments__head"><u>Comments</u></div>
 					<CommentsList comments={this.state.question.comments}/>
+				</div>
+				<div className="row">
+					<form onSubmit={this._onSubmit} className="new-comment">
+						<div className="new-comment__body">
+							<textarea rows="5" input type="text" placeholder="Write a new comment" name="body" ref="body"/>
+						</div>
+						<div className="new-comment__submit">
+							<button type="submit">Post Comment</button>
+						</div>
+					</form>
 				</div>
 			</div>
 		);
