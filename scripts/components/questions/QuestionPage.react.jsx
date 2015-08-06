@@ -30,16 +30,28 @@ var QuestionPage = React.createClass({
 		});
 	},
 
+	/*_onSubmit: function(e) {
+		e.preventDefault();
+		var commentBody = 
+		<div className="row">
+				<form onSubmit={this._onSubmit} className="new-comment">
+					<div class
+			</div>
+	},*/
+
 	render: function() {
 		var CommentItem = this.state.question.comments.length ? (
 			this.state.question.comments[0].body
 			) : (null);
 		return (
 			<div className="row">
-				<div className="question__title">{this.state.question.title}</div>
+				<div className="question__title"><strong>{this.state.question.title}</strong></div>
 				<div className="question__author">{this.state.question.user}</div>
+				<br/>
 				<div className="question__body">{this.state.question.body}</div>
-				<div className="question__comment">
+				<br/>
+				<div className="question__comments">
+					<div className="comments__head"><u>Comments</u></div>
 					<CommentsList comments={this.state.question.comments}/>
 				</div>
 			</div>
@@ -50,7 +62,7 @@ var QuestionPage = React.createClass({
 var CommentsList = React.createClass({
 	render: function() {
 		var ReturnItem = this.props.comments.length ? (
-			<ul className="large-8 medium-10 small-12 small-centered column">
+			<ul className="comments__list">
 			{this.props.comments.map(function(comment, index){
 				return <CommentItem comment={comment} key={"comment-" + index}/>
 				})}

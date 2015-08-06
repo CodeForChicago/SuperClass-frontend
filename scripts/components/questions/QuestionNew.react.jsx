@@ -18,15 +18,16 @@ var QuestionNew = React.createClass({
 	render: function () {
 		return (
 			<div className="row">
-				<form onSubmit={this._onSubmit} className="new-question">
-					<div className="new-question__title">
-						<input type="test" placeholder="Title" name="title" ref="title"/>
+				<br/>
+				<form onSubmit={this._onSubmit} className="new-lesson">
+					<div className="new-lesson__title">
+						<input type="text" placeholder="Title" name="title" ref="title"/>
 					</div>
-					<div className="new-question__body">
-						<input type="text" placeholder="Body" name="body" ref="body"/>
+					<div className="new-lesson__summary">
+						<textarea rows="10" input type="text" placeholder="Write your question here" name="body" ref="body"/>
 					</div>
-					<div className="new-question__submit">
-						<button type="submit">Post</button>
+					<div className="new-lesson__submit">
+						<button type="submit">Post Question</button>
 					</div>
 				</form>
 			</div>
@@ -36,7 +37,3 @@ var QuestionNew = React.createClass({
 });
 
 module.exports = QuestionNew;
-
-					/*<div className="new-question__author">
-						<input type="text" placeholder="Author" name="author" ref="author"/>
-					</div>*/

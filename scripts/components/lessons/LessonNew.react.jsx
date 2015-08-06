@@ -25,6 +25,7 @@ var LessonNew = React.createClass({
   render: function() {
     return (
       <div className="row">
+        <br/>
         <form onSubmit={this._onSubmit} className="new-lesson">
           <div className="new-lesson__title">
             <input type="text" placeholder="Title" name="title" ref="title" />
