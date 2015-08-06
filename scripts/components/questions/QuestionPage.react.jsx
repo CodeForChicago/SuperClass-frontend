@@ -67,8 +67,9 @@ var CommentItem = React.createClass({
 			<div className="comment__body">
 				{this.props.comment.body}
 			</div>
-			<div className="comment__author">
-				{this.props.comment.user}
+			<div className="comment__user">
+				&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;
+				{this.props.comment.user.username}
 			</div>
 		</li>
 		);
