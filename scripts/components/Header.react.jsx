@@ -34,19 +34,24 @@ var Header = React.createClass({
       </ul>
     );
 
-    var leftNav = this.props.isAdmin ? (
-      <ul className="left">
-        <li><Link to="new-lesson">New Lesson</Link></li>
-        <li><Link to="lessons">Lessons</Link></li>
+    // must be logged in to see 'new question' button
+    var newQuestion = this.props.isLoggedIn ? (
         <li><Link to="new-question">New Question</Link></li>
-        <li><Link to="questions">Questions</Link></li>
-      </ul>
-    ) : (
+      ) : (null);
+
+    // must be admin to see 'new lesson' button
+    var newLesson = this.props.isAdmin ? (
+        <li><Link to="new-lesson">New Lesson</Link></li>
+      ) : (null);
+
+    // left side of header navbar
+    var leftNav = (
       <ul className="left">
+        {newLesson}
         <li><Link to="lessons">Lessons</Link></li>
+        {newQuestion}
         <li><Link to="questions">Questions</Link></li>
-      </ul>
-    );
+      </ul>);
 
     return (
       <nav className="top-bar" data-topbar role="navigation">
