@@ -4,6 +4,8 @@ var QuestionActionCreators = require('../../actions/QuestionActionCreators.react
 var CommentActionCreators = require('../../actions/CommentActionCreators.react.jsx');
 var State = require('react-router').State;
 
+var optimisticComments = [];
+
 var QuestionPage = React.createClass({
 
 	mixins: [ State ],
@@ -34,14 +36,20 @@ var QuestionPage = React.createClass({
 	_onSubmit: function(e) {
 		e.preventDefault();
 		var commentBody = this.refs.body.getDOMNode().value;
-		CommentActionCreators.createComment(commentBody, this.getParams().questionId);
-		//QuestionActionCreators.addComment(newComment);
+		if (commentBody.length) {
+			CommentActionCreators.createComment(commentBody, this.getParams().questionId);
+			//QuestionActionCreators.addComment(newComment);
+			optimisticComments.push(commentBody);
+			this.refs.body.getDOMNode().value = "";
+			this.forceUpdate();
+		}
 	},
 
 	render: function() {
 		var CommentItem = this.state.question.comments.length ? (
 			this.state.question.comments[0].body
 			) : (null);
+		//debugger;
 		return (
 			<div className="row">
 				<div className="question__title"><strong>{this.state.question.title}</strong></div>
@@ -52,6 +60,9 @@ var QuestionPage = React.createClass({
 				<div className="question__comments">
 					<div className="comments__head"><u>Comments</u></div>
 					<CommentsList comments={this.state.question.comments}/>
+				</div>
+				<div className="temp__question__comments">
+					<OptCommentsList opt_comments={optimisticComments}/>
 				</div>
 				<div className="row">
 					<form onSubmit={this._onSubmit} className="new-comment">
@@ -64,6 +75,29 @@ var QuestionPage = React.createClass({
 					</form>
 				</div>
 			</div>
+		);
+	}
+});
+
+// renders new comments optimistically before they've been fully processed
+var OptCommentsList = React.createClass({
+	render: function() {
+		var ReturnItem = this.props.opt_comments.length ? (
+			<ul className="opt__comments__list">
+				{this.props.opt_comments.map(function(opt_comment, index){
+					return <OptCommentItem opt_comment={opt_comment} key={"opt_comment-" + index}/>
+				})}
+			</ul>
+			) : (null);
+		return(ReturnItem);
+	}
+});
+
+var OptCommentItem = React.createClass({
+	render: function() {
+		return(<li className="opt__comment">
+				{this.props.opt_comment}
+			</li>
 		);
 	}
 });

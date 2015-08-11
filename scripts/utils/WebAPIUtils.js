@@ -5,6 +5,9 @@ var request = require('superagent');
 
 var APIEndpoints = SuperclassConstants.APIEndpoints;
 
+// prototypes for when we can add comments to the backend
+var _tempComments = [];
+var _tempComment = {id: 0, body: ""};
 
 function _getErrors(res) {
   var errorMsgs = ["Something went wrong, please try again"];
@@ -148,8 +151,12 @@ WebAPIUtils = {
       });
   },
 
+  // change this when database can create comments
   createComment: function(body, question_id) {
-
+    _tempComment.id = question_id;
+    _tempComment.body = body;
+    _tempComments.push(_tempComment);
+    console.log(_tempComments);
   }
 };
 
