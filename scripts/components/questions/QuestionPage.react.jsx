@@ -3,6 +3,8 @@ var QuestionStore = require('../../stores/QuestionStore.react.jsx');
 var QuestionActionCreators = require('../../actions/QuestionActionCreators.react.jsx');
 var CommentActionCreators = require('../../actions/CommentActionCreators.react.jsx');
 var State = require('react-router').State;
+var SessionStore = require('../../stores/SessionStore.react.jsx');
+//var userEmail = SessionStore.getEmail
 
 var optimisticComments = [];
 
@@ -46,9 +48,6 @@ var QuestionPage = React.createClass({
 	},
 
 	render: function() {
-		var CommentItem = this.state.question.comments.length ? (
-			this.state.question.comments[0].body
-			) : (null);
 		//debugger;
 		return (
 			<div className="row">
@@ -96,7 +95,13 @@ var OptCommentsList = React.createClass({
 var OptCommentItem = React.createClass({
 	render: function() {
 		return(<li className="opt__comment">
-				{this.props.opt_comment}
+				<div className="opt__comment__body">
+					{this.props.opt_comment}
+				</div>
+				<div className="comment__user">
+					&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;
+					{SessionStore.getEmail()}
+				</div>
 			</li>
 		);
 	}

@@ -8,10 +8,10 @@ var ActionTypes = SuperclassConstants.ActionTypes;
 var CHANGE_EVENT = 'change';
 
 // Load an access token from the session storage, you might want to implement
-// a 'remember me' using localSgorage
+// a 'remember me' using localStorage
 var _accessToken = sessionStorage.getItem('accessToken');
 var _email = sessionStorage.getItem('email');
-var _role = sessionStorage.getItem('role')
+var _role = sessionStorage.getItem('role');
 var _errors = [];
 
 var SessionStore = assign({}, EventEmitter.prototype, {

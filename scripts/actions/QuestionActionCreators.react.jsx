@@ -19,8 +19,6 @@ QuestionActionCreators = {
     });
     WebAPIUtils.loadQuestion(questionId);
   },
-  
-
 
   //createQuestion: function(title, author, body) { //comments, responsecount, repcount) {
   // we removed author from the function because the author is already tracked via the user who created the post
