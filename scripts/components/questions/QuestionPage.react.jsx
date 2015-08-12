@@ -7,6 +7,7 @@ var SessionStore = require('../../stores/SessionStore.react.jsx');
 //var userEmail = SessionStore.getEmail
 
 var optimisticComments = [];
+var question_id;
 
 var QuestionPage = React.createClass({
 
@@ -41,14 +42,15 @@ var QuestionPage = React.createClass({
 		if (commentBody.length) {
 			CommentActionCreators.createComment(commentBody, this.getParams().questionId);
 			//QuestionActionCreators.addComment(newComment);
-			optimisticComments.push(commentBody);
+			var optimisticComment = {q_id: this.getParams().questionId, body: commentBody};
+			optimisticComments.push(optimisticComment);
 			this.refs.body.getDOMNode().value = "";
 			this.forceUpdate();
 		}
 	},
 
 	render: function() {
-		//debugger;
+		question_id = this.getParams().questionId;
 		return (
 			<div className="row">
 				<div className="question__title"><strong>{this.state.question.title}</strong></div>
@@ -59,8 +61,6 @@ var QuestionPage = React.createClass({
 				<div className="question__comments">
 					<div className="comments__head"><u>Comments</u></div>
 					<CommentsList comments={this.state.question.comments}/>
-				</div>
-				<div className="temp__question__comments">
 					<OptCommentsList opt_comments={optimisticComments}/>
 				</div>
 				<div className="row">
@@ -94,16 +94,18 @@ var OptCommentsList = React.createClass({
 
 var OptCommentItem = React.createClass({
 	render: function() {
-		return(<li className="opt__comment">
+		var ReturnItem = question_id == this.props.opt_comment.q_id ? (
+			<li className="opt__comment">
 				<div className="opt__comment__body">
-					{this.props.opt_comment}
+					{this.props.opt_comment.body}
 				</div>
 				<div className="comment__user">
 					&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;
 					{SessionStore.getEmail()}
 				</div>
 			</li>
-		);
+		) : (null);
+		return(ReturnItem);
 	}
 });
 
