@@ -64,7 +64,7 @@ var QuestionPage = React.createClass({
 			</div>
 		) : (
 			<div classname="comment__denial">
-				<strong>Please sign in to post a comments</strong>
+				<strong>Please sign in to post a comment</strong>
 			</div>
 		)
 		return (

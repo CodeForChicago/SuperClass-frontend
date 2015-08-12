@@ -35,9 +35,9 @@ var Header = React.createClass({
     );
 
     // must be logged in to see 'new question' button
-    var newQuestion = this.props.isLoggedIn ? (
+    /*var newQuestion = this.props.isLoggedIn ? (
         <li><Link to="new-question">New Question</Link></li>
-      ) : (null);
+      ) : (null);*/
 
     // must be admin to see 'new lesson' button
     var newLesson = this.props.isAdmin ? (
@@ -49,7 +49,6 @@ var Header = React.createClass({
       <ul className="left">
         {newLesson}
         <li><Link to="lessons">Lessons</Link></li>
-        {newQuestion}
         <li><Link to="questions">Questions</Link></li>
       </ul>);
 

@@ -3,7 +3,7 @@ var QuestionStore = require('../../stores/QuestionStore.react.jsx');
 var QuestionActionCreators = require('../../actions/QuestionActionCreators.react.jsx');
 var ErrorNotice = require('../../components/common/ErrorNotice.react.jsx');
 var RouteActionCreators = require('../../actions/RouteActionCreators.react.jsx');
-//var Header = require('../Header.react.jsx');
+var SessionStore = require('../../stores/SessionStore.react.jsx');
 var Router = require('react-router');
 var Link = Router.Link;
 var timeago = require('timeago');
@@ -34,18 +34,23 @@ var QuestionsPage = React.createClass({
   },
 
   render: function() {
-    /*var newQuestionButton = Header.loggedIn ? (
-      <div className="submit">
+    var newQuestionButton = SessionStore.isLoggedIn() ? (
+      <div className="large-3 medium-10 small-12 small-centered column">
         <Link to="new-question">New Questions</Link>
       </div>
     ) : (
-      <div>Hullo</div>
-    );*/
+      <div className="large-3 medium-10 small-12 small-centered column">
+        <strong>Please sign in to ask a question</strong>
+      </div>
+    );
     var errors = (this.state.errors.length > 0) ? 
       <ErrorNotice errors={this.state.errors}/> : <div></div>;
     return (
       <div>
         { errors }
+        <br/>
+        {newQuestionButton}
+        <br/>
         <div className="row">
           <QuestionsList questions={this.state.questions} />
         </div>
