@@ -51,6 +51,22 @@ var QuestionPage = React.createClass({
 
 	render: function() {
 		question_id = this.getParams().questionId;
+		var writeNewComment = SessionStore.isLoggedIn() ? (
+			<div className="row">
+				<form onSubmit={this._onSubmit} className="new-comment">
+					<div className="new-comment__body">
+						<textarea rows="5" input type="text" placeholder="Write a new comment" name="body" ref="body"/>
+					</div>
+					<div className="new-comment__submit">
+						<button type="submit">Post Comment</button>
+					</div>
+				</form>
+			</div>
+		) : (
+			<div classname="comment__denial">
+				<strong>Please sign in to post a comments</strong>
+			</div>
+		)
 		return (
 			<div className="row">
 				<div className="question__title"><strong>{this.state.question.title}</strong></div>
@@ -63,16 +79,7 @@ var QuestionPage = React.createClass({
 					<CommentsList comments={this.state.question.comments}/>
 					<OptCommentsList opt_comments={optimisticComments}/>
 				</div>
-				<div className="row">
-					<form onSubmit={this._onSubmit} className="new-comment">
-						<div className="new-comment__body">
-							<textarea rows="5" input type="text" placeholder="Write a new comment" name="body" ref="body"/>
-						</div>
-						<div className="new-comment__submit">
-							<button type="submit">Post Comment</button>
-						</div>
-					</form>
-				</div>
+				{writeNewComment}
 			</div>
 		);
 	}
