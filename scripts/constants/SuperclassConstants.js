@@ -9,7 +9,7 @@ Constants = {
 	APIEndpoints: {
     LOGIN:          APIRoot + "/v1/login",
 		REGISTRATION:   APIRoot + "/v1/users",
-		LESSONS:        APIRoot + "/v1/lessons",
+		LESSONS:        APIRoot + "/lessons",
 		QUESTIONS:      APIRoot + "/questions"
 	},
 	// check up on QUESTIONS later
