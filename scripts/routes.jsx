@@ -12,6 +12,7 @@ var LessonNew = require('./components/lessons/LessonNew.react.jsx');
 var QuestionsPage = require('./components/questions/QuestionsPage.react.jsx');
 var QuestionPage = require('./components/questions/QuestionPage.react.jsx');
 var QuestionNew = require('./components/questions/QuestionNew.react.jsx');
+var FeedbackPage = require('./components/feedback/FeedbackPage.react.jsx');
 
 module.exports = (
   <Route name="app" path="/" handler={SuperclassApp}>
@@ -24,6 +25,7 @@ module.exports = (
     <Route name="questions"  path="/questions" handler={QuestionsPage}/>
     <Route name="question" path="/questions/:questionId" handler={QuestionPage}/>
     <Route name="new-question" path="/question/new" handler={QuestionNew}/>
+    <Route name="feedback" path="/feedback" handler={FeedbackPage}/>
   </Route>
 );
 

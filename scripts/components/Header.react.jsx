@@ -50,6 +50,7 @@ var Header = React.createClass({
         {newLesson}
         <li><Link to="lessons">Lessons</Link></li>
         <li><Link to="questions">Questions</Link></li>
+        <li><Link to="feedback">Leave Feedback</Link></li>
       </ul>);
 
     return (
