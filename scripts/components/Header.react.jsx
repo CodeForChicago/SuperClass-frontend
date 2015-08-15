@@ -45,13 +45,14 @@ var Header = React.createClass({
       ) : (null);
 
     // left side of header navbar
+    // 
     var leftNav = (
       <ul className="left">
         {newLesson}
         <li><Link to="lessons">Lessons</Link></li>
         <li><Link to="questions">Questions</Link></li>
-        <li><Link to="feedback">Leave Feedback</Link></li>
       </ul>);
+    //<li><Link to="feedback">Leave Feedback</Link></li>
 
     return (
       <nav className="top-bar" data-topbar role="navigation">

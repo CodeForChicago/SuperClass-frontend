@@ -25,7 +25,7 @@ module.exports = (
     <Route name="questions"  path="/questions" handler={QuestionsPage}/>
     <Route name="question" path="/questions/:questionId" handler={QuestionPage}/>
     <Route name="new-question" path="/question/new" handler={QuestionNew}/>
-    <Route name="feedback" path="/feedback" handler={FeedbackPage}/>
   </Route>
 );
+// <Route name="feedback" path="/feedback" handler={FeedbackPage}/>
 

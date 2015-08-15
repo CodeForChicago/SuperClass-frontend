@@ -391,12 +391,6 @@ select {
     margin-right: auto;
     float: none; }
 
-  .column.testeroo,
-  .columns.testeroo {
-    margin-left: 2000;
-    margin-right: auto;
-    float: none; }
-
   .column.small-uncentered,
   .columns.small-uncentered {
     float: left;
