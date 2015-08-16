@@ -27,3 +27,5 @@ var FeedbackPage = React.createClass({
 		);
 	}
 });
+
+module.exports = FeedbackPage;
