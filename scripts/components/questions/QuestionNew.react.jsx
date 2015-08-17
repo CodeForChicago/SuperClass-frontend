@@ -14,6 +14,11 @@ var QuestionNew = React.createClass({
 		//we're not sure how
 	},
 
+	_onCancel: function(e) {
+		e.preventDefault();
+		RouteActionCreators.redirect('questions');
+	},
+
 	render: function () {
 		return (
 			<div className="row">
@@ -28,6 +33,9 @@ var QuestionNew = React.createClass({
 					<div className="new-question__submit">
 						<button type="submit">Post Question</button>
 					</div>
+				</form>
+				<form onSubmit={this._onCancel} className="cancel-question">
+					<button type="submit">Cancel</button>
 				</form>
 			</div>
 		);

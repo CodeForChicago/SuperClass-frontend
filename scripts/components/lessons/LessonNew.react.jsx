@@ -22,6 +22,11 @@ var LessonNew = React.createClass({
     LessonActionCreators.createLesson(title, creator, link, summary);
   },
 
+  _onCancel: function(e) {
+    e.preventDefault();
+    RouteActionCreators.redirect('lessons');
+  },
+
   render: function() {
     return (
       <div className="row">
@@ -42,6 +47,9 @@ var LessonNew = React.createClass({
           <div className="new-lesson__submit">
             <button type="submit">Create</button>
           </div>
+        </form>
+        <form onSubmit={this._onCancel} className="cancel-lesson">
+          <button type="submit">Cancel</button>
         </form>
       </div>
     );
