@@ -13,6 +13,7 @@ var QuestionsPage = require('./components/questions/QuestionsPage.react.jsx');
 var QuestionPage = require('./components/questions/QuestionPage.react.jsx');
 var QuestionNew = require('./components/questions/QuestionNew.react.jsx');
 var FeedbackPage = require('./components/feedback/FeedbackPage.react.jsx');
+var FeedbackThanks = require('./components/feedback/FeedbackThanks.react.jsx');
 
 module.exports = (
   <Route name="app" path="/" handler={SuperclassApp}>
@@ -26,6 +27,7 @@ module.exports = (
     <Route name="question" path="/questions/:questionId" handler={QuestionPage}/>
     <Route name="new-question" path="/question/new" handler={QuestionNew}/>
     <Route name="feedback" path="/feedback" handler={FeedbackPage}/>
+    <Route name="feedback-thanks" path="/feedback/thanks" handler={FeedbackThanks}/>
   </Route>
 );
 
