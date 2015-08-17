@@ -88,7 +88,6 @@ WebAPIUtils = {
       });
   },
 
-
   createLesson: function(title, creator, link, summary) {
     request.post(APIEndpoints.LESSONS)
       .set('Accept', 'application/json')
@@ -168,12 +167,25 @@ WebAPIUtils = {
           }
         }
     });
-    /*_tempComment.id = question_id;
-    _tempComment.body = body;
-    _tempComments.push(_tempComment);
-    console.log(_tempComments);*/
+  },
+
+  sendFeedback: function(body) {
+    /*request.post(APIEndpoints.FEEDBACK)
+      .set('Accept', 'application/json')
+      .set('Authorization', sessionStorage.getItem('accessToken'))
+      .send({ feedback: {body: body} })
+      .end( function(error, res) {
+        if (res) {
+          if (res.error) {
+            var errorMsgs = _getErrors(res);
+            //ServerActionCreators.receiveCreatedComment(null, errorMsgs);
+          } else {
+            json = JSON.parse(res.text);
+            //ServerActionCreators.receiveCreatedComment(null,errorMsgs);
+          }
+        }
+    });*/
   }
 };
-
 
 module.exports = WebAPIUtils;

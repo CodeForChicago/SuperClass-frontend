@@ -1,11 +1,13 @@
 var React = require('react');
 var RouteActionCreators = require('../../actions/RouteActionCreators.react.jsx');
-//var FeedbackActionCreators = require('../../actions/FeedbackActionCreators.react.jsx');
+var FeedbackActionCreators = require('../../actions/FeedbackActionCreators.react.jsx');
 
 var FeedbackPage = React.createClass({
 
 	_onSubmit: function(e) {
 		e.preventDefault();
+		var feedbackBody = this.refs.body.getDOMNode().value;
+		FeedbackActionCreators.sendFeedback(feedbackBody);
 		RouteActionCreators.redirect('feedback-thanks');
 	},
 

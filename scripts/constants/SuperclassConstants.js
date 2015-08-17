@@ -11,7 +11,8 @@ Constants = {
 		REGISTRATION:   APIRoot + "/v1/users",
 		LESSONS:        APIRoot + "/lessons",
 		QUESTIONS:      APIRoot + "/questions",
-        COMMENTS:       APIRoot + "/comments"
+        COMMENTS:       APIRoot + "/comments",
+        // FEEDBACK:       APIRoot + "/feedback"
 	},
 	// check up on QUESTIONS later
 
