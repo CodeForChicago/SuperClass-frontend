@@ -52,6 +52,7 @@ WebAPIUtils = {
       .send({ username: email, password: password, grant_type: 'password' })
       .set('Accept', 'application/json')
       .end(function(error, res){
+        debugger;
         if (res) {
           if (res.error) {
             var errorMsgs = _getErrors(res);
@@ -152,11 +153,26 @@ WebAPIUtils = {
   },
 
   // change this when database can create comments
-  createComment: function(body, question_id) {
-    _tempComment.id = question_id;
+  addComment: function(body, question_id) {
+    request.post(APIEndpoints.COMMENTS)
+      .set('Accept', 'application/json')
+      .set('Authorization', sessionStorage.getItem('accessToken'))
+      .send({ comment: {body: body, question: question_id} })
+      .end( function(error, res) {
+        if (res) {
+          if (res.error) {
+            var errorMsgs = _getErrors(res);
+            ServerActionCreators.receiveCreatedComment(null, errorMsgs);
+          } else {
+            json = JSON.parse(res.text);
+            ServerActionCreators.receiveCreatedComment(null,errorMsgs);
+          }
+        }
+    });
+    /*_tempComment.id = question_id;
     _tempComment.body = body;
     _tempComments.push(_tempComment);
-    console.log(_tempComments);
+    console.log(_tempComments);*/
   }
 };
 

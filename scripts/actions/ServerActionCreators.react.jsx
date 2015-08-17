@@ -57,6 +57,14 @@ ActionCreator = {
       json: json,
       errors: errors
     });
+  },
+
+  receiveCreatedComment: function(json, errors){
+    SuperclassDispatcher.handleServerAction({
+      type: ActionTypes.RECEIVE_CREATED_COMMENT,
+      json: json,
+      errors: errors
+    });
   }
 };
 

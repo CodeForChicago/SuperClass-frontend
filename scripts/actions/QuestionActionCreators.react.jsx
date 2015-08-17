@@ -34,6 +34,15 @@ QuestionActionCreators = {
       //repcount: repcount
     });
     WebAPIUtils.createQuestion(title, body);
+  },
+
+  addComment: function(body, question_id) {
+    Dispatcher.handleViewAction({
+      type: ActionTypes.CREATE_COMMENT,
+      body: body,
+      question_id: question_id
+    });
+    WebAPIUtils.addComment(body, question_id);
   }
 };
 

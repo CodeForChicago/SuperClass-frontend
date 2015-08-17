@@ -18,14 +18,14 @@ var QuestionNew = React.createClass({
 		return (
 			<div className="row">
 				<br/>
-				<form onSubmit={this._onSubmit} className="new-lesson">
-					<div className="new-lesson__title">
+				<form onSubmit={this._onSubmit} className="new-question">
+					<div className="new-question__title">
 						<input type="text" placeholder="Title" name="title" ref="title"/>
 					</div>
-					<div className="new-lesson__summary">
+					<div className="new-question__summary">
 						<textarea rows="10" input type="text" placeholder="Write your question here" name="body" ref="body"/>
 					</div>
-					<div className="new-lesson__submit">
+					<div className="new-question__submit">
 						<button type="submit">Post Question</button>
 					</div>
 				</form>

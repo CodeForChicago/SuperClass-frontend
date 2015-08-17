@@ -12,6 +12,7 @@ var CHANGE_EVENT = 'change';
 var _accessToken = sessionStorage.getItem('accessToken');
 var _email = sessionStorage.getItem('email');
 var _role = sessionStorage.getItem('role');
+var _user = sessionStorage.getItem('user');
 var _errors = [];
 
 var SessionStore = assign({}, EventEmitter.prototype, {
@@ -44,6 +45,10 @@ var SessionStore = assign({}, EventEmitter.prototype, {
     return _role;
   },
 
+  getUser: function() {
+    return _user;
+  },
+
   isAdmin: function() {
     return (this.isLoggedIn() && _role == 'admin') ? true : false;
   },
@@ -61,13 +66,16 @@ SessionStore.dispatchToken = SuperclassDispatcher.register(function(payload) {
 
     case ActionTypes.LOGIN_RESPONSE:
       if (action.json && action.json.access_token) {
+        debugger;
         _accessToken = action.json.access_token;
         _email = action.json.email;
         _role = action.json.role;
+        _user = action.json.username;
         // Token will always live in the session, so that the API can grab it with no hassle
         sessionStorage.setItem('accessToken', _accessToken);
         sessionStorage.setItem('email', _email);
-        sessionStorage.setItem('role', _role)
+        sessionStorage.setItem('role', _role);
+        sessionStorage.setItem('user', _user);
       }
       if (action.errors) {
         _errors = action.errors;
@@ -80,7 +88,8 @@ SessionStore.dispatchToken = SuperclassDispatcher.register(function(payload) {
       _email = null;
       sessionStorage.removeItem('accessToken');
       sessionStorage.removeItem('email');
-      sessionStorage.removeItem('role')
+      sessionStorage.removeItem('role');
+      sessionStorage.removeItem('user');
       SessionStore.emitChange();
       break;
 

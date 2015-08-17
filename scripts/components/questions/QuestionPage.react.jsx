@@ -1,7 +1,6 @@
 var React = require('react');
 var QuestionStore = require('../../stores/QuestionStore.react.jsx');
 var QuestionActionCreators = require('../../actions/QuestionActionCreators.react.jsx');
-var CommentActionCreators = require('../../actions/CommentActionCreators.react.jsx');
 var State = require('react-router').State;
 var SessionStore = require('../../stores/SessionStore.react.jsx');
 //var userEmail = SessionStore.getEmail
@@ -40,8 +39,7 @@ var QuestionPage = React.createClass({
 		e.preventDefault();
 		var commentBody = this.refs.body.getDOMNode().value;
 		if (commentBody.length) {
-			CommentActionCreators.createComment(commentBody, this.getParams().questionId);
-			//QuestionActionCreators.addComment(newComment);
+			QuestionActionCreators.addComment(commentBody, this.getParams().questionId);
 			var optimisticComment = {q_id: this.getParams().questionId, body: commentBody};
 			optimisticComments.push(optimisticComment);
 			this.refs.body.getDOMNode().value = "";
@@ -63,7 +61,7 @@ var QuestionPage = React.createClass({
 				</form>
 			</div>
 		) : (
-			<div classname="comment__denial">
+			<div className="comment__denial">
 				<strong>Please sign in to post a comment</strong>
 			</div>
 		)
@@ -108,7 +106,7 @@ var OptCommentItem = React.createClass({
 				</div>
 				<div className="comment__user">
 					&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;
-					{SessionStore.getEmail()}
+					{SessionStore.getUser()}
 				</div>
 			</li>
 		) : (null);

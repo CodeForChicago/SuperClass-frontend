@@ -7,10 +7,11 @@ var APIRoot = "http://localhost:3000";
 
 Constants = {
 	APIEndpoints: {
-    LOGIN:          APIRoot + "/v1/login",
+        LOGIN:          APIRoot + "/v1/login",
 		REGISTRATION:   APIRoot + "/v1/users",
 		LESSONS:        APIRoot + "/lessons",
-		QUESTIONS:      APIRoot + "/questions"
+		QUESTIONS:      APIRoot + "/questions",
+        COMMENTS:       APIRoot + "/comments"
 	},
 	// check up on QUESTIONS later
 
@@ -37,6 +38,7 @@ Constants = {
     RECEIVE_CREATED_QUESTION: null,
 
     CREATE_COMMENT: null,
+    RECEIVE_CREATED_COMMENT: null,
 
     //Routes
     REDIRECT: null
