@@ -52,7 +52,6 @@ WebAPIUtils = {
       .send({ username: email, password: password, grant_type: 'password' })
       .set('Accept', 'application/json')
       .end(function(error, res){
-        debugger;
         if (res) {
           if (res.error) {
             var errorMsgs = _getErrors(res);

@@ -66,7 +66,6 @@ SessionStore.dispatchToken = SuperclassDispatcher.register(function(payload) {
 
     case ActionTypes.LOGIN_RESPONSE:
       if (action.json && action.json.access_token) {
-        debugger;
         _accessToken = action.json.access_token;
         _email = action.json.email;
         _role = action.json.role;
