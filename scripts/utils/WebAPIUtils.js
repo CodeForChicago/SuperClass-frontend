@@ -170,21 +170,23 @@ WebAPIUtils = {
   },
 
   sendFeedback: function(body) {
-    /*request.post(APIEndpoints.FEEDBACK)
+    request.post(APIEndpoints.FEEDBACK)
       .set('Accept', 'application/json')
       .set('Authorization', sessionStorage.getItem('accessToken'))
-      .send({ feedback: {body: body} })
+      .send({ email: {body: body} })
       .end( function(error, res) {
         if (res) {
           if (res.error) {
-            var errorMsgs = _getErrors(res);
+            console.log("res.error");
+            //var errorMsgs = _getErrors(res);
             //ServerActionCreators.receiveCreatedComment(null, errorMsgs);
           } else {
-            json = JSON.parse(res.text);
+            console.log("success");
+            //json = JSON.parse(res.text);
             //ServerActionCreators.receiveCreatedComment(null,errorMsgs);
           }
         }
-    });*/
+    });
   }
 };
 

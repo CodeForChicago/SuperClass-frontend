@@ -12,7 +12,7 @@ Constants = {
 		LESSONS:        APIRoot + "/lessons",
 		QUESTIONS:      APIRoot + "/questions",
         COMMENTS:       APIRoot + "/comments",
-        // FEEDBACK:       APIRoot + "/feedback"
+        FEEDBACK:       APIRoot + "/feedback"
 	},
 	// check up on QUESTIONS later
 
