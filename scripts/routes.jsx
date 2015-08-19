@@ -14,10 +14,11 @@ var QuestionPage = require('./components/questions/QuestionPage.react.jsx');
 var QuestionNew = require('./components/questions/QuestionNew.react.jsx');
 var FeedbackPage = require('./components/feedback/FeedbackPage.react.jsx');
 var FeedbackThanks = require('./components/feedback/FeedbackThanks.react.jsx');
+var WelcomePage = require('./components/session/WelcomePage.react.jsx');
 
 module.exports = (
   <Route name="app" path="/" handler={SuperclassApp}>
-    <DefaultRoute handler={LessonsPage} />
+    <DefaultRoute handler={WelcomePage} />
     <Route name="login" path="/login" handler={LoginPage}/>
     <Route name="signup" path="/signup" handler={SignupPage}/>
     <Route name="lessons" path="/lessons" handler={LessonsPage}/>
@@ -28,6 +29,7 @@ module.exports = (
     <Route name="new-question" path="/question/new" handler={QuestionNew}/>
     <Route name="feedback" path="/feedback" handler={FeedbackPage}/>
     <Route name="feedback-thanks" path="/feedback/thanks" handler={FeedbackThanks}/>
+    <Route name="welcome" path="/home" handler={WelcomePage}/>
   </Route>
 );
 

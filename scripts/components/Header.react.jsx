@@ -3,6 +3,7 @@ var Router = require('react-router');
 var Link = Router.Link;
 var ReactPropTypes = React.PropTypes;
 var SessionActionCreators = require('../actions/SessionActionCreators.react.jsx');
+var RouteActionCreators = require('../actions/RouteActionCreators.react.jsx');
 
 var Header = React.createClass({
 
@@ -15,6 +16,7 @@ var Header = React.createClass({
   logout: function(e) {
     e.preventDefault();
     SessionActionCreators.logout();
+    RouteActionCreators.redirect('welcome');
   },
 
   render: function() {
