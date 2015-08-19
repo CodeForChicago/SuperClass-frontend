@@ -1,8 +1,15 @@
 var React = require('react');
 var QuestionActionCreators = require('../../actions/QuestionActionCreators.react.jsx');
 var RouteActionCreators = require('../../actions/RouteActionCreators.react.jsx');
+var SessionStore = require('../../stores/SessionStore.react.jsx');
 
 var QuestionNew = React.createClass({
+
+	componentDidMount: function() {
+    	if (!SessionStore.isLoggedIn()) {
+      	RouteActionCreators.redirect('app');
+    	}
+  	},
 
 	_onSubmit: function(e) {
 		e.preventDefault();
