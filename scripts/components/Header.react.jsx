@@ -44,6 +44,10 @@ var Header = React.createClass({
         <li><Link to="new-lesson">New Lesson</Link></li>
       ) : (null);
 
+    var feedback = this.props.isLoggedIn ? (
+        <li><Link to="feedback">Leave Feedback</Link></li>
+      ) : (null);
+
     // left side of header navbar
     // 
     var leftNav = (
@@ -51,7 +55,7 @@ var Header = React.createClass({
         {newLesson}
         <li><Link to="lessons">Lessons</Link></li>
         <li><Link to="questions">Questions</Link></li>
-        <li><Link to="feedback">Leave Feedback</Link></li>
+        {feedback}
       </ul>);
 
     return (

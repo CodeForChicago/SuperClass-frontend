@@ -177,11 +177,9 @@ WebAPIUtils = {
       .end( function(error, res) {
         if (res) {
           if (res.error) {
-            console.log("res.error");
             //var errorMsgs = _getErrors(res);
             //ServerActionCreators.receiveCreatedComment(null, errorMsgs);
           } else {
-            console.log("success");
             //json = JSON.parse(res.text);
             //ServerActionCreators.receiveCreatedComment(null,errorMsgs);
           }
