@@ -1,6 +1,9 @@
 var React = require('react');
-var Dispatcher = require('../../dispatcher/SuperclassDispatcher.js');
-var Constants = require('../../constants/SuperclassConstants.js');
+// doesn't look like we actually need the dispatcher and constants here, so I've
+// commented them out to eliminate some overhead
+// var Dispatcher = require('../../dispatcher/SuperclassDispatcher.js');
+// var Constants = require('../../constants/SuperclassConstants.js');
+
 var SessionStore = require('../../stores/SessionStore.react.jsx');
 var LessonActionCreators = require('../../actions/LessonActionCreators.react.jsx');
 var RouteActionCreators = require('../../actions/RouteActionCreators.react.jsx');

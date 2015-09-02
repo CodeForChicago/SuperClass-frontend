@@ -12,7 +12,8 @@ Constants = {
 		LESSONS:        APIRoot + "/lessons",
 		QUESTIONS:      APIRoot + "/questions",
         COMMENTS:       APIRoot + "/comments",
-        FEEDBACK:       APIRoot + "/feedback"
+        FEEDBACK:       APIRoot + "/feedback",
+        PROJECTS:       APIRoot + "/projects",
 	},
 	// check up on QUESTIONS later
 
@@ -40,6 +41,13 @@ Constants = {
 
     CREATE_COMMENT: null,
     RECEIVE_CREATED_COMMENT: null,
+
+    LOAD_PROJECTS: null,
+    RECEIVE_PROJECTS: null,
+    LOAD_PROJECT: null,
+    RECEIVE_PROJECT: null,
+    CREATE_PROJECT: null,
+    RECEIVE_CREATED_PROJECT: null,
 
     //Routes
     REDIRECT: null

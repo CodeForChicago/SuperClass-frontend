@@ -6,6 +6,7 @@ var request = require('superagent');
 var APIEndpoints = SuperclassConstants.APIEndpoints;
 
 // prototypes for when we can add comments to the backend
+// UPDATE [by Ben on 9-1-15]: do we still need these 2 vars???
 var _tempComments = [];
 var _tempComment = {id: 0, body: ""};
 
@@ -185,7 +186,49 @@ WebAPIUtils = {
           }
         }
     });
-  }
+  },
+
+  loadProjects: function(){
+    request.get(APIEndpoints.PROJECTS)
+      .set('Accept', 'application/json') // Gatekeeper: only lets json through
+      .set('Authorization', sessionStorage.getItem('accessToken')) // user must be logged in??
+      .end(function(error, res){
+        if (res) {
+          json = JSON.parse(res.text);
+          ServerActionCreators.receiveProjects(json);
+        }
+      });
+  },
+
+  loadProject: function(projectId){
+    request.get(APIEndpoints.PROJECTS + '/' + projectId) // goes to page specific to project we want to view
+      .set('Accept', 'application/json')
+      .set('Authorization', sessionStorage.getItem('accessToken'))
+      .end(function(error,res){
+        if (res) {
+          json = JSON.parse(res.text);
+          ServerActionCreators.receiveProject(json);
+        }
+      });
+  },
+
+  createProject: function(title,difficulty,utility_of_final_result, description){
+    request.post(APIEndpoints.PROJECTS) // asks to put something in DB
+      .set('Accept', 'application/json') // only allows json
+      .set('Authorization', sessionStorage.getItem('accessToken')) // user must be logged in (???)
+      .send({project: {title:title, difficulty:difficulty,utility_of_final_result:utility_of_final_result,description:description}})
+      .end(function(error, res) {
+        if (res) {
+          if (res.error) { // get errors if they occurred
+            var errorMsgs = _getErrors(res);
+            ServerActionCreators.receiveCreatedProject(null,errorMsgs);
+          } else { // otherwise add the project to the DB
+            json = JSON.parse(res.text);
+            ServerActionCreators.receiveCreatedProject(json, null);
+          }
+        }
+      });
+  },
 };
 
 module.exports = WebAPIUtils;

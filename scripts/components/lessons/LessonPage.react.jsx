@@ -44,4 +44,3 @@ var LessonPage = React.createClass({
 });
 
 module.exports = LessonPage;
-
