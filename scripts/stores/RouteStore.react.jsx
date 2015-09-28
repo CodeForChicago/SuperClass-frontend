@@ -62,7 +62,7 @@ RouteStore.dispatchToken = Dispatcher.register( function(payload) {
       break;
 
     case ActionTypes.RECEIVE_CREATED_LESSON:
-      router.transitionTo('app');
+      router.transitionTo('lessons');
       break;
 
     default:

@@ -98,6 +98,7 @@ WebAPIUtils = {
       .end( function(error, res) {
         if (res) {
           if (res.error) {
+            console.log("errors!");
             var errorMsgs = _getErrors(res);
             ServerActionCreators.receiveCreatedLesson( null, errorMsgs);
           } else {
