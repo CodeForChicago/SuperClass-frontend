@@ -16,9 +16,6 @@ var QuestionNew = React.createClass({
 		var title = this.refs.title.getDOMNode().value;
 		var body = this.refs.body.getDOMNode().value;
 		QuestionActionCreators.createQuestion(title, body);
-		RouteActionCreators.redirect('questions'); // Look into changing
-		//createLesson handles redirection without this final line
-		//we're not sure how
 	},
 
 	_onCancel: function(e) {

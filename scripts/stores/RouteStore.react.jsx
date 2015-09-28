@@ -65,6 +65,10 @@ RouteStore.dispatchToken = Dispatcher.register( function(payload) {
       router.transitionTo('lessons');
       break;
 
+    case ActionTypes.RECEIVE_CREATED_QUESTION:
+      router.transitionTo('questions');
+      break;
+      
     default:
   }
 });
