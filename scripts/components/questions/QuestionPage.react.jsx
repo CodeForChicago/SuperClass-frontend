@@ -3,9 +3,8 @@ var QuestionStore = require('../../stores/QuestionStore.react.jsx');
 var QuestionActionCreators = require('../../actions/QuestionActionCreators.react.jsx');
 var State = require('react-router').State;
 var SessionStore = require('../../stores/SessionStore.react.jsx');
-//var userEmail = SessionStore.getEmail
 
-var optimisticComments = [];
+//var optimisticComments = [];
 var question_id;
 
 var QuestionPage = React.createClass({
@@ -15,6 +14,7 @@ var QuestionPage = React.createClass({
 	getInitialState: function() {
 		return {
 			question: QuestionStore.getQuestion(),
+			comments: QuestionStore.getComments(),
 			errors: []
 		}
 	},
@@ -31,6 +31,7 @@ var QuestionPage = React.createClass({
 	_onChange: function() {
 		this.setState({
 			question: QuestionStore.getQuestion(),
+			comments: QuestionStore.getComments(),
 			errors: QuestionStore.getErrors()
 		});
 	},
@@ -40,8 +41,8 @@ var QuestionPage = React.createClass({
 		var commentBody = this.refs.body.getDOMNode().value;
 		if (commentBody.length) {
 			QuestionActionCreators.addComment(commentBody, this.getParams().questionId);
-			var optimisticComment = {q_id: this.getParams().questionId, body: commentBody};
-			optimisticComments.push(optimisticComment);
+			//var optimisticComment = {q_id: this.getParams().questionId, body: commentBody};
+			//optimisticComments.push(optimisticComment);
 			this.refs.body.getDOMNode().value = "";
 			this.forceUpdate();
 		}
@@ -75,7 +76,7 @@ var QuestionPage = React.createClass({
 				<div className="question__comments">
 					<div className="comments__head"><u>Comments</u></div>
 					<CommentsList comments={this.state.question.comments}/>
-					<OptCommentsList opt_comments={optimisticComments}/>
+					<OptCommentsList opt_comments={comments}/>
 				</div>
 				{writeNewComment}
 			</div>

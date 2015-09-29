@@ -165,7 +165,8 @@ WebAPIUtils = {
             ServerActionCreators.receiveCreatedComment(null, errorMsgs);
           } else {
             json = JSON.parse(res.text);
-            ServerActionCreators.receiveCreatedComment(null,errorMsgs);
+            console.log(json);
+            ServerActionCreators.receiveCreatedComment(json, null);
           }
         }
     });

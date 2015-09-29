@@ -9,6 +9,8 @@ var CHANGE_EVENT = 'change';
 var _questions = [];
 var _errors = [];
 var _question = { title: "", author: "", comments: {}, body: "", responsecount: 0, repcount: 0  };
+var _opt_comments = [];
+var _opt_comment = {q_id: 0, body: ""}
 
 var QuestionStore = assign({}, EventEmitter.prototype, {
   
@@ -30,6 +32,11 @@ var QuestionStore = assign({}, EventEmitter.prototype, {
   
   getQuestion: function() {
     return _question;
+  },
+
+  // for retrieving any current optimistic comments
+  getComments: function() {
+    return _opt_comments;
   },
   
   getErrors: function() {
@@ -64,6 +71,19 @@ QuestionStore.dispatchToken = Dispatcher.register(function(payload) {
         _question = action.json.question;
         _errors = [];
       }
+      if (action.errors) {
+        _errors = action.errors;
+      }
+      QuestionStore.emitChange();
+      break;
+
+    case ActionTypes.CREATE_COMMENT:
+      var _opt_comment = {q_id: action.question_id, body: action.body};
+      _opt_comments.push(_opt_comment);
+      QuestionStore.emiteChange();
+      break;
+
+    case ActionTypes.RECEIVE_CREATED_COMMENT:
       if (action.errors) {
         _errors = action.errors;
       }
