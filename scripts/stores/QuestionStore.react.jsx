@@ -80,7 +80,7 @@ QuestionStore.dispatchToken = Dispatcher.register(function(payload) {
     case ActionTypes.CREATE_COMMENT:
       var _opt_comment = {q_id: action.question_id, body: action.body};
       _opt_comments.push(_opt_comment);
-      QuestionStore.emiteChange();
+      QuestionStore.emitChange();
       break;
 
     case ActionTypes.RECEIVE_CREATED_COMMENT:

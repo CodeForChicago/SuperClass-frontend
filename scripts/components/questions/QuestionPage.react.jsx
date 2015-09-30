@@ -76,7 +76,7 @@ var QuestionPage = React.createClass({
 				<div className="question__comments">
 					<div className="comments__head"><u>Comments</u></div>
 					<CommentsList comments={this.state.question.comments}/>
-					<OptCommentsList opt_comments={comments}/>
+					<OptCommentsList opt_comments={this.state.comments}/>
 				</div>
 				{writeNewComment}
 			</div>
