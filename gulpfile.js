@@ -1,6 +1,7 @@
 'use strict';
 
 var gulp = require('gulp'),
+    connect = require('gulp-connect'),
     gulpFilter = require('gulp-filter'),
     flatten = require('gulp-flatten'),
     mainBowerFiles = require('main-bower-files'),
@@ -147,3 +148,10 @@ gulp.task('default', function() {
   console.log('Run "gulp watch or gulp build"');
 });
 
+gulp.task('serveprod', function() {
+  connect.server({
+    root: ['./'],
+    port: process.env.PORT || 5000, // localhost:5000
+    livereload: false
+  });
+});
