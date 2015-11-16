@@ -155,3 +155,8 @@ gulp.task('serveprod', function() {
     livereload: false
   });
 });
+
+gulp.task('build-prod', function() {
+  process.env.NODE_ENV = 'production';
+  gulp.start(['libs', 'browserify', 'styles', 'serveprod']);
+});
