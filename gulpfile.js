@@ -142,7 +142,7 @@ gulp.task('watchTask', function() {
 });
 
 gulp.task('watch', ['clean'], function() {
-  gulp.start(['libs', 'styles', 'htmls', 'browserSync', 'watchTask', 'watchify']);
+  gulp.start(['browserSync', 'watchTask', 'watchify']);
 });
 
 gulp.task('build', ['clean'], function() {
