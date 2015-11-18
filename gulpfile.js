@@ -141,7 +141,7 @@ gulp.task('watchTask', function() {
   gulp.watch(p.scssSource, ['styles']);
 });
 
-gulp.task('watch', ['clean'], function() {
+gulp.task('watch', function() {
   gulp.start(['browserSync', 'watchTask', 'watchify']);
 });
 
@@ -152,4 +152,8 @@ gulp.task('build', ['clean'], function() {
 
 gulp.task('default', function() {
   console.log('Run "gulp watch or gulp build"');
+});
+
+gulp.task('build-watch', function() {
+  gulp.start(['build', 'watch']);
 });
