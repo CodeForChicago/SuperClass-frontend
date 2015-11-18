@@ -154,6 +154,3 @@ gulp.task('default', function() {
   console.log('Run "gulp watch or gulp build"');
 });
 
-gulp.task('build-watch', function() {
-  gulp.start(['build', 'watch']);
-});
