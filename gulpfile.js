@@ -1,7 +1,6 @@
 'use strict';
 
 var gulp = require('gulp'),
-    connect = require('gulp-connect'),
     gulpFilter = require('gulp-filter'),
     flatten = require('gulp-flatten'),
     mainBowerFiles = require('main-bower-files'),
@@ -26,21 +25,23 @@ var gulp = require('gulp'),
       scss: 'styles/main.scss',
       scssSource: 'styles/*',
       font: 'fonts/*',
+      htmlSource: 'html/*',
       bundle: 'app.js',
+      dist: 'dist',
       distJs: 'dist/js',
       distCss: 'dist/css',
-      distFont: 'dist/fonts'
+      distFont: 'dist/fonts',
     };
 
 gulp.task('clean', function(cb) {
-  del(['dist'], cb);
+  del([p.dist], cb);
 });
 
 gulp.task('browserSync', function() {
   browserSync({
     notify: false,
     server: {
-      baseDir: './'
+      baseDir: 'dist/'
     }
   })
 });
@@ -86,6 +87,11 @@ gulp.task('styles', function() {
     .pipe(csso())
     .pipe(gulp.dest(p.distCss))
     .pipe(reload({stream: true}));
+});
+
+gulp.task('htmls', function() {
+  return gulp.src(p.htmlSource)
+    .pipe(gulp.dest(p.dist));
 });
 
 // Ugly hack to bring modernizr in
@@ -136,27 +142,14 @@ gulp.task('watchTask', function() {
 });
 
 gulp.task('watch', ['clean'], function() {
-  gulp.start(['libs', 'browserSync', 'watchTask', 'watchify', 'styles']);
+  gulp.start(['libs', 'styles', 'htmls', 'browserSync', 'watchTask', 'watchify']);
 });
 
 gulp.task('build', ['clean'], function() {
   process.env.NODE_ENV = 'production';
-  gulp.start(['libs', 'browserify', 'styles']);
+  gulp.start(['libs', 'browserify', 'styles', 'htmls']);
 });
 
 gulp.task('default', function() {
   console.log('Run "gulp watch or gulp build"');
-});
-
-gulp.task('serveprod', function() {
-  connect.server({
-    root: ['./'],
-    port: process.env.PORT || 5000, // localhost:5000
-    livereload: false
-  });
-});
-
-gulp.task('build-prod', function() {
-  process.env.NODE_ENV = 'production';
-  gulp.start(['libs', 'browserify', 'styles', 'serveprod']);
 });
