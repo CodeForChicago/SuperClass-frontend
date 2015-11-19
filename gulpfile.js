@@ -1,6 +1,7 @@
 'use strict';
 
 var gulp = require('gulp'),
+    argv = require('yargs').argv,
     gulpFilter = require('gulp-filter'),
     flatten = require('gulp-flatten'),
     mainBowerFiles = require('main-bower-files'),
@@ -22,6 +23,7 @@ var gulp = require('gulp'),
     reload = browserSync.reload,
     p = {
       jsx: './scripts/app.jsx',
+      scripts: './scripts',
       scss: 'styles/main.scss',
       scssSource: 'styles/*',
       font: 'fonts/*',
@@ -31,10 +33,20 @@ var gulp = require('gulp'),
       distJs: 'dist/js',
       distCss: 'dist/css',
       distFont: 'dist/fonts',
+      configFolder: './config',
+      configPre: 'config_'
     };
 
 gulp.task('clean', function(cb) {
   del([p.dist], cb);
+});
+
+gulp.task('config', function() {
+  var env = argv.e || 'dev';
+
+  return gulp.src(p.configFolder + '/' + p.configPre + env + '.js')
+             .pipe(rename('config.js'))
+             .pipe(gulp.dest(p.scripts));
 });
 
 gulp.task('browserSync', function() {
@@ -145,10 +157,10 @@ gulp.task('watch', function() {
   gulp.start(['browserSync', 'watchTask', 'watchify']);
 });
 
-gulp.task('build', ['clean'], function() {
-  process.env.NODE_ENV = 'production';
+gulp.task('build', ['clean', 'config'], function() {
   gulp.start(['libs', 'browserify', 'styles', 'htmls']);
 });
+
 
 gulp.task('default', function() {
   console.log('Run "gulp watch or gulp build"');
