@@ -1,9 +1,13 @@
 /* global Constants */
 //SuperclasConstants
 var keyMirror = require('keymirror');
+var env = require('../config.js');
 
-var APIRoot = process.env;
+var APIRoot = env.API_URL || 'http://localhost:5000';
 
+debugger;
+
+console.log(JSON.stringify(env));
 Constants = {
 	APIEndpoints: {
         LOGIN:          APIRoot + "/v1/login",
