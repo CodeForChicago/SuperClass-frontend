@@ -1,9 +1,9 @@
 /* global Constants */
 //SuperclasConstants
-
+var serverInfo = require('../../server.js');
 var keyMirror = require('keymirror');
 
-var APIRoot = process.env.API_URL || "http://localhost:5000";
+var APIRoot = serverInfo.API_URL || "http://localhost:5000";
 
 console.log(APIRoot);
 
