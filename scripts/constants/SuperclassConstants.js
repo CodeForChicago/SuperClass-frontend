@@ -5,6 +5,8 @@ var keyMirror = require('keymirror');
 
 var APIRoot = process.env.API_URL || "http://localhost:5000";
 
+console.log(APIRoot);
+
 Constants = {
 	APIEndpoints: {
         LOGIN:          APIRoot + "/v1/login",
