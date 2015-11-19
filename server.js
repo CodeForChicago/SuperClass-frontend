@@ -1,6 +1,7 @@
 
 var express = require('express'),
 	app = express();
+require('./config.js');
 
 app.use(express.static(__dirname + '/dist'));
 app.get('/', function(req, res) {
@@ -8,10 +9,3 @@ app.get('/', function(req, res) {
 });
 
 app.listen(process.env.PORT || 5000);
-
-// 
-// Setup nconf to use (in-order): 
-//   1. Command-line arguments 
-//   2. Environment variables 
-//   3. A file located at 'path/to/config.json' 
-// 
