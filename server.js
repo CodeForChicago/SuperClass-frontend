@@ -9,4 +9,9 @@ app.get('/', function(req, res) {
 
 app.listen(process.env.PORT || 5000);
 
-module.exports = process.env;
+// 
+// Setup nconf to use (in-order): 
+//   1. Command-line arguments 
+//   2. Environment variables 
+//   3. A file located at 'path/to/config.json' 
+// 
