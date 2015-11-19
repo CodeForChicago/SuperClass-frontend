@@ -4,8 +4,6 @@ var keyMirror = require('keymirror');
 
 var APIRoot = process.env;
 
-console.log(APIRoot);
-
 Constants = {
 	APIEndpoints: {
         LOGIN:          APIRoot + "/v1/login",

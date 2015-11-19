@@ -9,6 +9,7 @@ LessonActionCreators = {
     Dispatcher.handleViewAction({
       type: ActionTypes.LOAD_LESSONS
     });
+    console.log(process.env);
     WebAPIUtils.loadLessons();
   },
 
