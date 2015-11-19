@@ -3,7 +3,7 @@
 
 var keyMirror = require('keymirror');
 
-var APIRoot = "http://localhost:3000";
+var APIRoot = process.env.API_URL || "http://localhost:5000";
 
 Constants = {
 	APIEndpoints: {
@@ -31,7 +31,7 @@ Constants = {
     RECEIVE_LESSON: null,
     CREATE_LESSON: null,
     RECEIVE_CREATED_LESSON: null,
-    
+
     LOAD_QUESTIONS: null,
     RECEIVE_QUESTIONS: null,
     LOAD_QUESTION: null,
