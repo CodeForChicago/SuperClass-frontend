@@ -15,7 +15,16 @@ var WelcomePage = React.createClass({
 				<strong>Welcome to the Code for Chicago web application prototype!<br/>
 				Please log in or sign up in the upper right corner.</strong>
 			</div>);
-		return (WelcomeDisplay);
+
+		var video = (<iframe width="853" height="480" src="https://www.youtube.com/embed/STRPsW6IY8k" frameborder="10" allowfullscreen> </iframe>);
+		return (
+			<div>
+				{WelcomeDisplay}
+				<div className="row">
+					{video}
+				</div>
+			</div>
+			);
 	}
 });
 
