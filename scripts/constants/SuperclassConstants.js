@@ -3,7 +3,7 @@
 var keyMirror = require('keymirror');
 var env = require('../config.js');
 
-var APIRoot = env.API_URL || 'http://localhost:5000';
+var APIRoot = env.API_URL;
 
 debugger;
 
