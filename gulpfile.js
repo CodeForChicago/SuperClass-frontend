@@ -18,6 +18,8 @@ var gulp = require('gulp'),
     reactify = require('reactify'),
     uglify = require('gulp-uglify'),
     del = require('del'),
+    delJs = require('del'),
+    delFont = require ('del'),
     notify = require('gulp-notify'),
     browserSync = require('browser-sync'),
     reload = browserSync.reload,
@@ -36,9 +38,19 @@ var gulp = require('gulp'),
       configFolder: './config',
       configPre: 'config_'
     };
-
+/*
 gulp.task('clean', function(cb) {
-  del([p.dist], cb);
+ // del([p.dist], cb);
+    delJs([p.distJs], cb);
+    (delFont([p.distFont]));
+});
+*/
+gulp.task ('cleanFont', function (cb) {
+	delFont([p.distFont],cb);
+});
+
+gulp.task ( 'cleanJs', function (cb) {
+	delJs([p.distJs], cb);
 });
 
 gulp.task('config', function() {
@@ -157,7 +169,7 @@ gulp.task('watch', function() {
   gulp.start(['browserSync', 'watchTask', 'watchify']);
 });
 
-gulp.task('build', ['clean', 'config'], function() {
+gulp.task('build', ['cleanFont', 'cleanJs', 'config'], function() {
   gulp.start(['libs', 'browserify', 'styles', 'htmls']);
 });
 

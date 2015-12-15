@@ -1,0 +1,13 @@
+Gulpfile has been changed in following way:
+
+Rather than cleaning the whole file, we are cleaning only specific parts
+
+Made new instances named delJs, and delFont, to replace del, and for clarity.
+ 
+They do the same thing that del does just for the distFont and distJs instead 
+
+of dist. 
+
+We pass the callback function in the build task. We pass it to build, then cleanJs,
+
+then to cleanFont, then to the final function which remains unchanged.
