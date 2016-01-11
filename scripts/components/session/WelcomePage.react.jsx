@@ -16,7 +16,7 @@ var WelcomePage = React.createClass({
 				Please log in or sign up in the upper right corner.</strong>
 			</div>);
 
-		var video = (<iframe width="853" height="480" src="https://www.youtube.com/embed/STRPsW6IY8k" frameborder="10" allowfullscreen> </iframe>);
+		var video = (<iframe width="100%" height="480" src="https://www.youtube.com/embed/STRPsW6IY8k?autoplay=1" frameborder="10" allowfullscreen> </iframe>);
 		return (
 			<div>
 				{WelcomeDisplay}
