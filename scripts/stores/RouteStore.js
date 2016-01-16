@@ -1,7 +1,7 @@
 var Dispatcher = require('../dispatcher/SuperclassDispatcher.js');
 var Constants = require('../constants/SuperclassConstants.js');
-var SessionStore = require('../stores/SessionStore.react.jsx');
-var LessonStore = require('../stores/LessonStore.react.jsx');
+var SessionStore = require('../stores/SessionStore.js');
+var LessonStore = require('../stores/LessonStore.js');
 var EventEmitter = require('events').EventEmitter;
 var assign = require('object-assign');
 

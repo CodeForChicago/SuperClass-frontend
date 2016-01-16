@@ -1,8 +1,8 @@
 var React = require('react');
-var QuestionStore = require('../../stores/QuestionStore.react.jsx');
-var QuestionActionCreators = require('../../actions/QuestionActionCreators.react.jsx');
+var QuestionStore = require('../../stores/QuestionStore.js');
+var QuestionActionCreators = require('../../actions/QuestionActionCreators.js');
 var State = require('react-router').State;
-var SessionStore = require('../../stores/SessionStore.react.jsx');
+var SessionStore = require('../../stores/SessionStore.js');
 
 //var optimisticComments = [];
 var question_id;

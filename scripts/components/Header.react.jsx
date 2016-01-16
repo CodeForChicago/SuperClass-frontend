@@ -2,8 +2,8 @@ var React = require('react');
 var Router = require('react-router');
 var Link = Router.Link;
 var ReactPropTypes = React.PropTypes;
-var SessionActionCreators = require('../actions/SessionActionCreators.react.jsx');
-var RouteActionCreators = require('../actions/RouteActionCreators.react.jsx');
+var SessionActionCreators = require('../actions/SessionActionCreators.js');
+var RouteActionCreators = require('../actions/RouteActionCreators.js');
 
 var Header = React.createClass({
 

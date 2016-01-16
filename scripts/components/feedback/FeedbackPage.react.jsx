@@ -1,7 +1,7 @@
 var React = require('react');
-var RouteActionCreators = require('../../actions/RouteActionCreators.react.jsx');
-var FeedbackActionCreators = require('../../actions/FeedbackActionCreators.react.jsx');
-var SessionStore = require('../../stores/SessionStore.react.jsx');
+var RouteActionCreators = require('../../actions/RouteActionCreators.js');
+var FeedbackActionCreators = require('../../actions/FeedbackActionCreators.js');
+var SessionStore = require('../../stores/SessionStore.js');
 
 var FeedbackPage = React.createClass({
 

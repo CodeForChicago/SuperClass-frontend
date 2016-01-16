@@ -4,9 +4,9 @@ var React = require('react');
 // var Dispatcher = require('../../dispatcher/SuperclassDispatcher.js');
 // var Constants = require('../../constants/SuperclassConstants.js');
 
-var SessionStore = require('../../stores/SessionStore.react.jsx');
-var LessonActionCreators = require('../../actions/LessonActionCreators.react.jsx');
-var RouteActionCreators = require('../../actions/RouteActionCreators.react.jsx');
+var SessionStore = require('../../stores/SessionStore.js');
+var LessonActionCreators = require('../../actions/LessonActionCreators.js');
+var RouteActionCreators = require('../../actions/RouteActionCreators.js');
 
 var LessonNew = React.createClass({
 

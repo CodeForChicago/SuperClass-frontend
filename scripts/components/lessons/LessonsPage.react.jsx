@@ -1,7 +1,7 @@
 var React = require('react');
-var LessonStore = require('../../stores/LessonStore.react.jsx');
+var LessonStore = require('../../stores/LessonStore.js');
 var ErrorNotice = require('../../components/common/ErrorNotice.react.jsx');
-var LessonActionCreators = require('../../actions/LessonActionCreators.react.jsx');
+var LessonActionCreators = require('../../actions/LessonActionCreators.js');
 var Router = require('react-router');
 var Link = Router.Link;
 

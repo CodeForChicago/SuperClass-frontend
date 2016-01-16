@@ -1,6 +1,6 @@
 var React = require('react');
-var LessonStore = require('../../stores/LessonStore.react.jsx');
-var LessonActionCreators = require('../../actions/LessonActionCreators.react.jsx');
+var LessonStore = require('../../stores/LessonStore.js');
+var LessonActionCreators = require('../../actions/LessonActionCreators.js');
 var State = require('react-router').State;
 
 var LessonPage = React.createClass({

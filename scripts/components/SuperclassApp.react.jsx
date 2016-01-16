@@ -1,8 +1,8 @@
 var React = require('react');
 var RouteHandler = require('react-router').RouteHandler;
 var Header = require('../components/Header.react.jsx');
-var SessionStore = require('../stores/SessionStore.react.jsx');
-var RouteStore = require('../stores/RouteStore.react.jsx');
+var SessionStore = require('../stores/SessionStore.js');
+var RouteStore = require('../stores/RouteStore.js');
 
 function getSessionStateFromStores() {
   return {
