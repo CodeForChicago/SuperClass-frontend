@@ -1,5 +1,5 @@
 env = {
-	API_URL: 'https://cfcapi.herokuapp.com'
+	API_URL: 'http://localhost:3000'
 };
 
 module.exports = env;
