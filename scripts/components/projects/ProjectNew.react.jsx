@@ -2,9 +2,9 @@ var React = require('react');
 // doesn't look like we need the dispatcher
 // var Dispatcher = require('../../dispatcher/SuperclassDispatcher.js');
 
-var SessionStore = require('../../stores/SessionStore.react.jsx');
-var ProjectActionCreators = require('../../actions/ProjectActionCreators.react.jsx');
-var RouteActionCreators = require('../../actions/RouteActionCreators.react.jsx');
+var SessionStore = require('../../stores/SessionStore.js');
+var ProjectActionCreators = require('../../actions/ProjectActionCreators.js');
+var RouteActionCreators = require('../../actions/RouteActionCreators.js');
 
 var ProjectNew = React.createClass({
 

@@ -1,6 +1,6 @@
 var React = require('react');
-var ProjectStore = require('../../stores/ProjectStore.react.jsx');
-var ProjectActionCreators = require('../../actions/ProjectActionCreators.react.jsx');
+var ProjectStore = require('../../stores/ProjectStore.js');
+var ProjectActionCreators = require('../../actions/ProjectActionCreators.js');
 var State = require('react-router').State;
 
 // var project_id;

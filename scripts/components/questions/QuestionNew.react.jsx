@@ -1,7 +1,7 @@
 var React = require('react');
-var QuestionActionCreators = require('../../actions/QuestionActionCreators.react.jsx');
-var RouteActionCreators = require('../../actions/RouteActionCreators.react.jsx');
-var SessionStore = require('../../stores/SessionStore.react.jsx');
+var QuestionActionCreators = require('../../actions/QuestionActionCreators.js');
+var RouteActionCreators = require('../../actions/RouteActionCreators.js');
+var SessionStore = require('../../stores/SessionStore.js');
 
 var QuestionNew = React.createClass({
 

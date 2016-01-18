@@ -1,6 +1,6 @@
 var React = require('react');
-var SessionActionCreators = require('../../actions/SessionActionCreators.react.jsx');
-var SessionStore = require('../../stores/SessionStore.react.jsx');
+var SessionActionCreators = require('../../actions/SessionActionCreators.js');
+var SessionStore = require('../../stores/SessionStore.js');
 var ErrorNotice = require('../../components/common/ErrorNotice.react.jsx');
 
 var LoginPage = React.createClass({

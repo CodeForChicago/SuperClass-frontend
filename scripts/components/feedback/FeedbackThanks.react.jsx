@@ -1,5 +1,5 @@
 var React = require('react');
-var RouteActionCreators = require('../../actions/RouteActionCreators.react.jsx');
+var RouteActionCreators = require('../../actions/RouteActionCreators.js');
 
 var FeedbackThanks = React.createClass({
 

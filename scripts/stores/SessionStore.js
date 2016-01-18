@@ -1,4 +1,4 @@
-//SessionStore.react.jsx
+//SessionStore.js
 var SuperclassDispatcher = require('../dispatcher/SuperclassDispatcher.js');
 var SuperclassConstants = require('../constants/SuperclassConstants.js');
 var EventEmitter = require('events').EventEmitter;

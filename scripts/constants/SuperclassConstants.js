@@ -5,9 +5,6 @@ var env = require('../config.js');
 
 var APIRoot = env.API_URL;
 
-debugger;
-
-console.log(JSON.stringify(env));
 Constants = {
 	APIEndpoints: {
         LOGIN:          APIRoot + "/v1/login",

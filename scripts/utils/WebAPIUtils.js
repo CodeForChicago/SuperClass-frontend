@@ -1,5 +1,5 @@
 //WebAPIUtil.js
-var ServerActionCreators = require('../actions/ServerActionCreators.react.jsx');
+var ServerActionCreators = require('../actions/ServerActionCreators.js');
 var SuperclassConstants = require('../constants/SuperclassConstants.js');
 var request = require('superagent');
 

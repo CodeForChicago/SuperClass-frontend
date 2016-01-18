@@ -1,5 +1,5 @@
 var React = require('react');
-var SessionStore = require('../../stores/SessionStore.react.jsx');
+var SessionStore = require('../../stores/SessionStore.js');
 
 var WelcomePage = React.createClass({
 
