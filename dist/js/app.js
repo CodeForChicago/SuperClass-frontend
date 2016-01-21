@@ -1,13 +1,21 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 var React = require('react');
+<<<<<<< HEAD
+var router = require('./stores/RouteStore.react.jsx').getRouter();
+=======
 var router = require('./stores/RouteStore.js').getRouter();
+>>>>>>> 544648488746fc930cad5f2c97bf3f15987a5c38
 window.React = React;
 
 router.run(function (Handler, state) {
   React.render(React.createElement(Handler, null), document.getElementById('content'));
 });
 
+<<<<<<< HEAD
+},{"./stores/RouteStore.react.jsx":238,"react":198}],2:[function(require,module,exports){
+=======
 },{"./stores/RouteStore.js":238,"react":198}],2:[function(require,module,exports){
+>>>>>>> 544648488746fc930cad5f2c97bf3f15987a5c38
 var lookup = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/';
 
 ;(function (exports) {
@@ -145,7 +153,11 @@ var lookup = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/';
 
 var base64 = require('base64-js')
 var ieee754 = require('ieee754')
+<<<<<<< HEAD
+var isArray = require('isarray')
+=======
 var isArray = require('is-array')
+>>>>>>> 544648488746fc930cad5f2c97bf3f15987a5c38
 
 exports.Buffer = Buffer
 exports.SlowBuffer = SlowBuffer
@@ -1681,7 +1693,18 @@ function blitBuffer (src, dst, offset, length) {
 }
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
+<<<<<<< HEAD
+},{"base64-js":2,"ieee754":10,"isarray":4}],4:[function(require,module,exports){
+var toString = {}.toString;
+
+module.exports = Array.isArray || function (arr) {
+  return toString.call(arr) == '[object Array]';
+};
+
+},{}],5:[function(require,module,exports){
+=======
 },{"base64-js":2,"ieee754":9,"is-array":10}],4:[function(require,module,exports){
+>>>>>>> 544648488746fc930cad5f2c97bf3f15987a5c38
 
 /**
  * Expose `Emitter`.
@@ -1847,7 +1870,11 @@ Emitter.prototype.hasListeners = function(event){
   return !! this.listeners(event).length;
 };
 
+<<<<<<< HEAD
+},{}],6:[function(require,module,exports){
+=======
 },{}],5:[function(require,module,exports){
+>>>>>>> 544648488746fc930cad5f2c97bf3f15987a5c38
 // Copyright Joyent, Inc. and other Node contributors.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a
@@ -2150,7 +2177,11 @@ function isUndefined(arg) {
   return arg === void 0;
 }
 
+<<<<<<< HEAD
+},{}],7:[function(require,module,exports){
+=======
 },{}],6:[function(require,module,exports){
+>>>>>>> 544648488746fc930cad5f2c97bf3f15987a5c38
 (function (process){
 /**
  * Copyright 2013-2015, Facebook, Inc.
@@ -2202,7 +2233,11 @@ var invariant = function (condition, format, a, b, c, d, e, f) {
 
 module.exports = invariant;
 }).call(this,require('_process'))
+<<<<<<< HEAD
+},{"_process":13}],8:[function(require,module,exports){
+=======
 },{"_process":13}],7:[function(require,module,exports){
+>>>>>>> 544648488746fc930cad5f2c97bf3f15987a5c38
 /**
  * Copyright (c) 2014-2015, Facebook, Inc.
  * All rights reserved.
@@ -2214,7 +2249,11 @@ module.exports = invariant;
 
 module.exports.Dispatcher = require('./lib/Dispatcher');
 
+<<<<<<< HEAD
+},{"./lib/Dispatcher":9}],9:[function(require,module,exports){
+=======
 },{"./lib/Dispatcher":8}],8:[function(require,module,exports){
+>>>>>>> 544648488746fc930cad5f2c97bf3f15987a5c38
 (function (process){
 /**
  * Copyright (c) 2014-2015, Facebook, Inc.
@@ -2448,7 +2487,11 @@ var Dispatcher = (function () {
 
 module.exports = Dispatcher;
 }).call(this,require('_process'))
+<<<<<<< HEAD
+},{"_process":13,"fbjs/lib/invariant":7}],10:[function(require,module,exports){
+=======
 },{"_process":13,"fbjs/lib/invariant":6}],9:[function(require,module,exports){
+>>>>>>> 544648488746fc930cad5f2c97bf3f15987a5c38
 exports.read = function (buffer, offset, isLE, mLen, nBytes) {
   var e, m
   var eLen = nBytes * 8 - mLen - 1
@@ -2534,6 +2577,8 @@ exports.write = function (buffer, value, offset, isLE, mLen, nBytes) {
   buffer[offset + i - d] |= s * 128
 }
 
+<<<<<<< HEAD
+=======
 },{}],10:[function(require,module,exports){
 
 /**
@@ -2569,6 +2614,7 @@ module.exports = isArray || function (val) {
   return !! val && '[object Array]' == str.call(val);
 };
 
+>>>>>>> 544648488746fc930cad5f2c97bf3f15987a5c38
 },{}],11:[function(require,module,exports){
 /**
  * Copyright 2013-2014 Facebook, Inc.
@@ -24681,7 +24727,11 @@ request.put = function(url, data, fn){
 
 module.exports = request;
 
+<<<<<<< HEAD
+},{"emitter":5,"reduce":199}],201:[function(require,module,exports){
+=======
 },{"emitter":4,"reduce":199}],201:[function(require,module,exports){
+>>>>>>> 544648488746fc930cad5f2c97bf3f15987a5c38
 /*
  * node-timeago
  * Cam Pedersen
@@ -25994,7 +26044,11 @@ RouteActionCreators = {
 module.exports = RouteActionCreators;
 
 },{"../constants/SuperclassConstants.js":232,"../dispatcher/SuperclassDispatcher":233}],212:[function(require,module,exports){
+<<<<<<< HEAD
+//ServerActionCreators.react.jsx
+=======
 //ServerActionCreators.js
+>>>>>>> 544648488746fc930cad5f2c97bf3f15987a5c38
 
 var SuperclassDispatcher = require('../dispatcher/SuperclassDispatcher.js');
 var SuperclassConstants = require('../constants/SuperclassConstants.js');
@@ -26110,8 +26164,13 @@ var React = require('react');
 var Router = require('react-router');
 var Link = Router.Link;
 var ReactPropTypes = React.PropTypes;
+<<<<<<< HEAD
+var SessionActionCreators = require('../actions/SessionActionCreators.react.jsx');
+var RouteActionCreators = require('../actions/RouteActionCreators.react.jsx');
+=======
 var SessionActionCreators = require('../actions/SessionActionCreators.js');
 var RouteActionCreators = require('../actions/RouteActionCreators.js');
+>>>>>>> 544648488746fc930cad5f2c97bf3f15987a5c38
 
 var Header = React.createClass({displayName: "Header",
 
@@ -26187,12 +26246,21 @@ var Header = React.createClass({displayName: "Header",
 });
 
 module.exports = Header;
+<<<<<<< HEAD
+},{"../actions/RouteActionCreators.react.jsx":211,"../actions/SessionActionCreators.react.jsx":213,"react":198,"react-router":23}],215:[function(require,module,exports){
+var React = require('react');
+var RouteHandler = require('react-router').RouteHandler;
+var Header = require('../components/Header.react.jsx');
+var SessionStore = require('../stores/SessionStore.react.jsx');
+var RouteStore = require('../stores/RouteStore.react.jsx');
+=======
 },{"../actions/RouteActionCreators.js":211,"../actions/SessionActionCreators.js":213,"react":198,"react-router":23}],215:[function(require,module,exports){
 var React = require('react');
 var RouteHandler = require('react-router').RouteHandler;
 var Header = require('../components/Header.react.jsx');
 var SessionStore = require('../stores/SessionStore.js');
 var RouteStore = require('../stores/RouteStore.js');
+>>>>>>> 544648488746fc930cad5f2c97bf3f15987a5c38
 
 function getSessionStateFromStores() {
   return {
@@ -26238,7 +26306,11 @@ var SuperclassApp = React.createClass({displayName: "SuperclassApp",
 
 module.exports = SuperclassApp;
 
+<<<<<<< HEAD
+},{"../components/Header.react.jsx":214,"../stores/RouteStore.react.jsx":238,"../stores/SessionStore.react.jsx":239,"react":198,"react-router":23}],216:[function(require,module,exports){
+=======
 },{"../components/Header.react.jsx":214,"../stores/RouteStore.js":238,"../stores/SessionStore.js":239,"react":198,"react-router":23}],216:[function(require,module,exports){
+>>>>>>> 544648488746fc930cad5f2c97bf3f15987a5c38
 var React = require('react');
 
 var ErrorNotice = React.createClass({displayName: "ErrorNotice",
@@ -26259,9 +26331,15 @@ module.exports = ErrorNotice;
 
 },{"react":198}],217:[function(require,module,exports){
 var React = require('react');
+<<<<<<< HEAD
+var RouteActionCreators = require('../../actions/RouteActionCreators.react.jsx');
+var FeedbackActionCreators = require('../../actions/FeedbackActionCreators.react.jsx');
+var SessionStore = require('../../stores/SessionStore.react.jsx');
+=======
 var RouteActionCreators = require('../../actions/RouteActionCreators.js');
 var FeedbackActionCreators = require('../../actions/FeedbackActionCreators.js');
 var SessionStore = require('../../stores/SessionStore.js');
+>>>>>>> 544648488746fc930cad5f2c97bf3f15987a5c38
 
 var FeedbackPage = React.createClass({displayName: "FeedbackPage",
 
@@ -26301,9 +26379,15 @@ var FeedbackPage = React.createClass({displayName: "FeedbackPage",
 
 module.exports = FeedbackPage;
 
+<<<<<<< HEAD
+},{"../../actions/FeedbackActionCreators.react.jsx":207,"../../actions/RouteActionCreators.react.jsx":211,"../../stores/SessionStore.react.jsx":239,"react":198}],218:[function(require,module,exports){
+var React = require('react');
+var RouteActionCreators = require('../../actions/RouteActionCreators.react.jsx');
+=======
 },{"../../actions/FeedbackActionCreators.js":207,"../../actions/RouteActionCreators.js":211,"../../stores/SessionStore.js":239,"react":198}],218:[function(require,module,exports){
 var React = require('react');
 var RouteActionCreators = require('../../actions/RouteActionCreators.js');
+>>>>>>> 544648488746fc930cad5f2c97bf3f15987a5c38
 
 var FeedbackThanks = React.createClass({displayName: "FeedbackThanks",
 
@@ -26331,16 +26415,26 @@ var FeedbackThanks = React.createClass({displayName: "FeedbackThanks",
 });
 
 module.exports = FeedbackThanks;
+<<<<<<< HEAD
+},{"../../actions/RouteActionCreators.react.jsx":211,"react":198}],219:[function(require,module,exports){
+=======
 },{"../../actions/RouteActionCreators.js":211,"react":198}],219:[function(require,module,exports){
+>>>>>>> 544648488746fc930cad5f2c97bf3f15987a5c38
 var React = require('react');
 // doesn't look like we actually need the dispatcher and constants here, so I've
 // commented them out to eliminate some overhead
 // var Dispatcher = require('../../dispatcher/SuperclassDispatcher.js');
 // var Constants = require('../../constants/SuperclassConstants.js');
 
+<<<<<<< HEAD
+var SessionStore = require('../../stores/SessionStore.react.jsx');
+var LessonActionCreators = require('../../actions/LessonActionCreators.react.jsx');
+var RouteActionCreators = require('../../actions/RouteActionCreators.react.jsx');
+=======
 var SessionStore = require('../../stores/SessionStore.js');
 var LessonActionCreators = require('../../actions/LessonActionCreators.js');
 var RouteActionCreators = require('../../actions/RouteActionCreators.js');
+>>>>>>> 544648488746fc930cad5f2c97bf3f15987a5c38
 
 var LessonNew = React.createClass({displayName: "LessonNew",
 
@@ -26396,10 +26490,17 @@ var LessonNew = React.createClass({displayName: "LessonNew",
 
 module.exports = LessonNew;
 
+<<<<<<< HEAD
+},{"../../actions/LessonActionCreators.react.jsx":208,"../../actions/RouteActionCreators.react.jsx":211,"../../stores/SessionStore.react.jsx":239,"react":198}],220:[function(require,module,exports){
+var React = require('react');
+var LessonStore = require('../../stores/LessonStore.react.jsx');
+var LessonActionCreators = require('../../actions/LessonActionCreators.react.jsx');
+=======
 },{"../../actions/LessonActionCreators.js":208,"../../actions/RouteActionCreators.js":211,"../../stores/SessionStore.js":239,"react":198}],220:[function(require,module,exports){
 var React = require('react');
 var LessonStore = require('../../stores/LessonStore.js');
 var LessonActionCreators = require('../../actions/LessonActionCreators.js');
+>>>>>>> 544648488746fc930cad5f2c97bf3f15987a5c38
 var State = require('react-router').State;
 
 var LessonPage = React.createClass({displayName: "LessonPage",
@@ -26444,11 +26545,20 @@ var LessonPage = React.createClass({displayName: "LessonPage",
 
 module.exports = LessonPage;
 
+<<<<<<< HEAD
+},{"../../actions/LessonActionCreators.react.jsx":208,"../../stores/LessonStore.react.jsx":235,"react":198,"react-router":23}],221:[function(require,module,exports){
+var React = require('react');
+var LessonStore = require('../../stores/LessonStore.react.jsx');
+var SessionStore = require ('../../stores/SessionStore.react.jsx');
+var ErrorNotice = require('../../components/common/ErrorNotice.react.jsx');
+var LessonActionCreators = require('../../actions/LessonActionCreators.react.jsx');
+=======
 },{"../../actions/LessonActionCreators.js":208,"../../stores/LessonStore.js":235,"react":198,"react-router":23}],221:[function(require,module,exports){
 var React = require('react');
 var LessonStore = require('../../stores/LessonStore.js');
 var ErrorNotice = require('../../components/common/ErrorNotice.react.jsx');
 var LessonActionCreators = require('../../actions/LessonActionCreators.js');
+>>>>>>> 544648488746fc930cad5f2c97bf3f15987a5c38
 var Router = require('react-router');
 var Link = Router.Link;
 
@@ -26478,11 +26588,24 @@ var LessonsPage = React.createClass({displayName: "LessonsPage",
   },
 
   render: function() {
+<<<<<<< HEAD
+    var loginMessage = SessionStore.isLoggedIn() ? (React.createElement("br", null))
+	    : ( React.createElement("div", {className: "large-3 medium-10 small-12 small-centered column"}, 
+		   React.createElement("strong", null, "Please sign in to view lessons")
+		));
+=======
+>>>>>>> 544648488746fc930cad5f2c97bf3f15987a5c38
     var errors = (this.state.errors.length > 0) ? 
     React.createElement(ErrorNotice, {errors: this.state.errors}) : React.createElement("div", null);
     return (
       React.createElement("div", null, 
         errors, 
+<<<<<<< HEAD
+	React.createElement("br", null), 
+	loginMessage, 
+	React.createElement("br", null), 
+=======
+>>>>>>> 544648488746fc930cad5f2c97bf3f15987a5c38
         React.createElement("div", {className: "row"}, 
           React.createElement(LessonsList, {lessons: this.state.lessons})
         )
@@ -26521,14 +26644,24 @@ var LessonsList = React.createClass({displayName: "LessonsList",
 
 module.exports = LessonsPage;
 
+<<<<<<< HEAD
+},{"../../actions/LessonActionCreators.react.jsx":208,"../../components/common/ErrorNotice.react.jsx":216,"../../stores/LessonStore.react.jsx":235,"../../stores/SessionStore.react.jsx":239,"react":198,"react-router":23}],222:[function(require,module,exports){
+=======
 },{"../../actions/LessonActionCreators.js":208,"../../components/common/ErrorNotice.react.jsx":216,"../../stores/LessonStore.js":235,"react":198,"react-router":23}],222:[function(require,module,exports){
+>>>>>>> 544648488746fc930cad5f2c97bf3f15987a5c38
 var React = require('react');
 // doesn't look like we need the dispatcher
 // var Dispatcher = require('../../dispatcher/SuperclassDispatcher.js');
 
+<<<<<<< HEAD
+var SessionStore = require('../../stores/SessionStore.react.jsx');
+var ProjectActionCreators = require('../../actions/ProjectActionCreators.react.jsx');
+var RouteActionCreators = require('../../actions/RouteActionCreators.react.jsx');
+=======
 var SessionStore = require('../../stores/SessionStore.js');
 var ProjectActionCreators = require('../../actions/ProjectActionCreators.js');
 var RouteActionCreators = require('../../actions/RouteActionCreators.js');
+>>>>>>> 544648488746fc930cad5f2c97bf3f15987a5c38
 
 var ProjectNew = React.createClass({displayName: "ProjectNew",
 
@@ -26600,10 +26733,17 @@ function showValue(newValue)
 // <input type="text" placeholder="Difficulty (1-10, 1 being easiest and 10 being hardest" name="difficulty" ref="difficulty" />
 
 */
+<<<<<<< HEAD
+},{"../../actions/ProjectActionCreators.react.jsx":209,"../../actions/RouteActionCreators.react.jsx":211,"../../stores/SessionStore.react.jsx":239,"react":198}],223:[function(require,module,exports){
+var React = require('react');
+var ProjectStore = require('../../stores/ProjectStore.react.jsx');
+var ProjectActionCreators = require('../../actions/ProjectActionCreators.react.jsx');
+=======
 },{"../../actions/ProjectActionCreators.js":209,"../../actions/RouteActionCreators.js":211,"../../stores/SessionStore.js":239,"react":198}],223:[function(require,module,exports){
 var React = require('react');
 var ProjectStore = require('../../stores/ProjectStore.js');
 var ProjectActionCreators = require('../../actions/ProjectActionCreators.js');
+>>>>>>> 544648488746fc930cad5f2c97bf3f15987a5c38
 var State = require('react-router').State;
 
 // var project_id;
@@ -26651,6 +26791,15 @@ var ProjectPage = React.createClass({displayName: "ProjectPage",
 });
 
 module.exports = ProjectPage;
+<<<<<<< HEAD
+},{"../../actions/ProjectActionCreators.react.jsx":209,"../../stores/ProjectStore.react.jsx":236,"react":198,"react-router":23}],224:[function(require,module,exports){
+var React = require('react');
+var ProjectStore = require('../../stores/ProjectStore.react.jsx');
+var ProjectActionCreators = require('../../actions/ProjectActionCreators.react.jsx');
+var ErrorNotice = require('../../components/common/ErrorNotice.react.jsx');
+var RouteActionCreators = require('../../actions/RouteActionCreators.react.jsx');
+var SessionStore = require('../../stores/SessionStore.react.jsx');
+=======
 },{"../../actions/ProjectActionCreators.js":209,"../../stores/ProjectStore.js":236,"react":198,"react-router":23}],224:[function(require,module,exports){
 var React = require('react');
 var ProjectStore = require('../../stores/ProjectStore.js');
@@ -26658,6 +26807,7 @@ var ProjectActionCreators = require('../../actions/ProjectActionCreators.js');
 var ErrorNotice = require('../../components/common/ErrorNotice.react.jsx');
 var RouteActionCreators = require('../../actions/RouteActionCreators.js');
 var SessionStore = require('../../stores/SessionStore.js');
+>>>>>>> 544648488746fc930cad5f2c97bf3f15987a5c38
 var Router = require('react-router');
 var Link = Router.Link;
 var timeago = require('timeago');
@@ -26752,11 +26902,19 @@ var ProjectsList = React.createClass({displayName: "ProjectsList",
 });
 
 module.exports = ProjectsPage;
+<<<<<<< HEAD
+},{"../../actions/ProjectActionCreators.react.jsx":209,"../../actions/RouteActionCreators.react.jsx":211,"../../components/common/ErrorNotice.react.jsx":216,"../../stores/ProjectStore.react.jsx":236,"../../stores/SessionStore.react.jsx":239,"react":198,"react-router":23,"timeago":201}],225:[function(require,module,exports){
+var React = require('react');
+var QuestionActionCreators = require('../../actions/QuestionActionCreators.react.jsx');
+var RouteActionCreators = require('../../actions/RouteActionCreators.react.jsx');
+var SessionStore = require('../../stores/SessionStore.react.jsx');
+=======
 },{"../../actions/ProjectActionCreators.js":209,"../../actions/RouteActionCreators.js":211,"../../components/common/ErrorNotice.react.jsx":216,"../../stores/ProjectStore.js":236,"../../stores/SessionStore.js":239,"react":198,"react-router":23,"timeago":201}],225:[function(require,module,exports){
 var React = require('react');
 var QuestionActionCreators = require('../../actions/QuestionActionCreators.js');
 var RouteActionCreators = require('../../actions/RouteActionCreators.js');
 var SessionStore = require('../../stores/SessionStore.js');
+>>>>>>> 544648488746fc930cad5f2c97bf3f15987a5c38
 
 var QuestionNew = React.createClass({displayName: "QuestionNew",
 
@@ -26803,12 +26961,21 @@ var QuestionNew = React.createClass({displayName: "QuestionNew",
 });
 
 module.exports = QuestionNew;
+<<<<<<< HEAD
+},{"../../actions/QuestionActionCreators.react.jsx":210,"../../actions/RouteActionCreators.react.jsx":211,"../../stores/SessionStore.react.jsx":239,"react":198}],226:[function(require,module,exports){
+var React = require('react');
+var QuestionStore = require('../../stores/QuestionStore.react.jsx');
+var QuestionActionCreators = require('../../actions/QuestionActionCreators.react.jsx');
+var State = require('react-router').State;
+var SessionStore = require('../../stores/SessionStore.react.jsx');
+=======
 },{"../../actions/QuestionActionCreators.js":210,"../../actions/RouteActionCreators.js":211,"../../stores/SessionStore.js":239,"react":198}],226:[function(require,module,exports){
 var React = require('react');
 var QuestionStore = require('../../stores/QuestionStore.js');
 var QuestionActionCreators = require('../../actions/QuestionActionCreators.js');
 var State = require('react-router').State;
 var SessionStore = require('../../stores/SessionStore.js');
+>>>>>>> 544648488746fc930cad5f2c97bf3f15987a5c38
 
 //var optimisticComments = [];
 var question_id;
@@ -26952,6 +27119,15 @@ var CommentItem = React.createClass({displayName: "CommentItem",
 
 
 module.exports = QuestionPage;
+<<<<<<< HEAD
+},{"../../actions/QuestionActionCreators.react.jsx":210,"../../stores/QuestionStore.react.jsx":237,"../../stores/SessionStore.react.jsx":239,"react":198,"react-router":23}],227:[function(require,module,exports){
+var React = require('react');
+var QuestionStore = require('../../stores/QuestionStore.react.jsx');
+var QuestionActionCreators = require('../../actions/QuestionActionCreators.react.jsx');
+var ErrorNotice = require('../../components/common/ErrorNotice.react.jsx');
+var RouteActionCreators = require('../../actions/RouteActionCreators.react.jsx');
+var SessionStore = require('../../stores/SessionStore.react.jsx');
+=======
 },{"../../actions/QuestionActionCreators.js":210,"../../stores/QuestionStore.js":237,"../../stores/SessionStore.js":239,"react":198,"react-router":23}],227:[function(require,module,exports){
 var React = require('react');
 var QuestionStore = require('../../stores/QuestionStore.js');
@@ -26959,6 +27135,7 @@ var QuestionActionCreators = require('../../actions/QuestionActionCreators.js');
 var ErrorNotice = require('../../components/common/ErrorNotice.react.jsx');
 var RouteActionCreators = require('../../actions/RouteActionCreators.js');
 var SessionStore = require('../../stores/SessionStore.js');
+>>>>>>> 544648488746fc930cad5f2c97bf3f15987a5c38
 var Router = require('react-router');
 var Link = Router.Link;
 var timeago = require('timeago');
@@ -27047,10 +27224,17 @@ var QuestionsList = React.createClass({displayName: "QuestionsList",
 });
 
 module.exports = QuestionsPage;
+<<<<<<< HEAD
+},{"../../actions/QuestionActionCreators.react.jsx":210,"../../actions/RouteActionCreators.react.jsx":211,"../../components/common/ErrorNotice.react.jsx":216,"../../stores/QuestionStore.react.jsx":237,"../../stores/SessionStore.react.jsx":239,"react":198,"react-router":23,"timeago":201}],228:[function(require,module,exports){
+var React = require('react');
+var SessionActionCreators = require('../../actions/SessionActionCreators.react.jsx');
+var SessionStore = require('../../stores/SessionStore.react.jsx');
+=======
 },{"../../actions/QuestionActionCreators.js":210,"../../actions/RouteActionCreators.js":211,"../../components/common/ErrorNotice.react.jsx":216,"../../stores/QuestionStore.js":237,"../../stores/SessionStore.js":239,"react":198,"react-router":23,"timeago":201}],228:[function(require,module,exports){
 var React = require('react');
 var SessionActionCreators = require('../../actions/SessionActionCreators.js');
 var SessionStore = require('../../stores/SessionStore.js');
+>>>>>>> 544648488746fc930cad5f2c97bf3f15987a5c38
 var ErrorNotice = require('../../components/common/ErrorNotice.react.jsx');
 
 var LoginPage = React.createClass({displayName: "LoginPage",
@@ -27107,10 +27291,17 @@ var LoginPage = React.createClass({displayName: "LoginPage",
 module.exports = LoginPage;
 
 
+<<<<<<< HEAD
+},{"../../actions/SessionActionCreators.react.jsx":213,"../../components/common/ErrorNotice.react.jsx":216,"../../stores/SessionStore.react.jsx":239,"react":198}],229:[function(require,module,exports){
+var React = require('react');
+var SessionActionCreators = require('../../actions/SessionActionCreators.react.jsx');
+var SessionStore = require('../../stores/SessionStore.react.jsx');
+=======
 },{"../../actions/SessionActionCreators.js":213,"../../components/common/ErrorNotice.react.jsx":216,"../../stores/SessionStore.js":239,"react":198}],229:[function(require,module,exports){
 var React = require('react');
 var SessionActionCreators = require('../../actions/SessionActionCreators.js');
 var SessionStore = require('../../stores/SessionStore.js');
+>>>>>>> 544648488746fc930cad5f2c97bf3f15987a5c38
 var ErrorNotice = require('../../components/common/ErrorNotice.react.jsx');
 
 var SignupPage = React.createClass({displayName: "SignupPage",
@@ -27180,9 +27371,15 @@ var SignupPage = React.createClass({displayName: "SignupPage",
 
 module.exports = SignupPage;
 
+<<<<<<< HEAD
+},{"../../actions/SessionActionCreators.react.jsx":213,"../../components/common/ErrorNotice.react.jsx":216,"../../stores/SessionStore.react.jsx":239,"react":198}],230:[function(require,module,exports){
+var React = require('react');
+var SessionStore = require('../../stores/SessionStore.react.jsx');
+=======
 },{"../../actions/SessionActionCreators.js":213,"../../components/common/ErrorNotice.react.jsx":216,"../../stores/SessionStore.js":239,"react":198}],230:[function(require,module,exports){
 var React = require('react');
 var SessionStore = require('../../stores/SessionStore.js');
+>>>>>>> 544648488746fc930cad5f2c97bf3f15987a5c38
 
 var WelcomePage = React.createClass({displayName: "WelcomePage",
 
@@ -27199,7 +27396,11 @@ var WelcomePage = React.createClass({displayName: "WelcomePage",
 				"Please log in or sign up in the upper right corner.")
 			));
 
+<<<<<<< HEAD
+		var video = (React.createElement("iframe", {width: "100%", height: "480", src: "https://www.youtube.com/embed/STRPsW6IY8k?autoplay=1", frameborder: "10", allowfullscreen: true}, " "));
+=======
 		var video = (React.createElement("iframe", {width: "853", height: "480", src: "https://www.youtube.com/embed/STRPsW6IY8k", frameborder: "10", allowfullscreen: true}, " "));
+>>>>>>> 544648488746fc930cad5f2c97bf3f15987a5c38
 		return (
 			React.createElement("div", null, 
 				WelcomeDisplay, 
@@ -27212,7 +27413,12 @@ var WelcomePage = React.createClass({displayName: "WelcomePage",
 });
 
 module.exports = WelcomePage;
+<<<<<<< HEAD
+
+},{"../../stores/SessionStore.react.jsx":239,"react":198}],231:[function(require,module,exports){
+=======
 },{"../../stores/SessionStore.js":239,"react":198}],231:[function(require,module,exports){
+>>>>>>> 544648488746fc930cad5f2c97bf3f15987a5c38
 env = {
 	API_URL: 'http://localhost:3000'
 };
@@ -27226,6 +27432,12 @@ var env = require('../config.js');
 
 var APIRoot = env.API_URL;
 
+<<<<<<< HEAD
+debugger;
+
+console.log(JSON.stringify(env));
+=======
+>>>>>>> 544648488746fc930cad5f2c97bf3f15987a5c38
 Constants = {
 	APIEndpoints: {
         LOGIN:          APIRoot + "/v1/login",
@@ -27311,7 +27523,11 @@ var SuperclassDispatcher = assign(new Dispatcher(),{
 });
 
 module.exports = SuperclassDispatcher;
+<<<<<<< HEAD
+},{"../constants/SuperclassConstants.js":232,"flux":8,"object-assign":12}],234:[function(require,module,exports){
+=======
 },{"../constants/SuperclassConstants.js":232,"flux":7,"object-assign":12}],234:[function(require,module,exports){
+>>>>>>> 544648488746fc930cad5f2c97bf3f15987a5c38
 var React = require('react');
 var Router = require('react-router');
 var Route = Router.Route;
@@ -27434,7 +27650,11 @@ LessonStore.dispatchToken = Dispatcher.register(function(payload) {
 
 module.exports = LessonStore;
 
+<<<<<<< HEAD
+},{"../constants/SuperclassConstants.js":232,"../dispatcher/SuperclassDispatcher.js":233,"events":6,"object-assign":12}],236:[function(require,module,exports){
+=======
 },{"../constants/SuperclassConstants.js":232,"../dispatcher/SuperclassDispatcher.js":233,"events":5,"object-assign":12}],236:[function(require,module,exports){
+>>>>>>> 544648488746fc930cad5f2c97bf3f15987a5c38
 var Dispatcher = require('../dispatcher/SuperclassDispatcher.js');
 var EventEmitter = require('events').EventEmitter;
 var Constants = require('../constants/SuperclassConstants.js');
@@ -27515,7 +27735,11 @@ ProjectStore.dispatchToken = Dispatcher.register(function(payload) {
 });
 
 module.exports = ProjectStore;
+<<<<<<< HEAD
+},{"../constants/SuperclassConstants.js":232,"../dispatcher/SuperclassDispatcher.js":233,"events":6,"object-assign":12}],237:[function(require,module,exports){
+=======
 },{"../constants/SuperclassConstants.js":232,"../dispatcher/SuperclassDispatcher.js":233,"events":5,"object-assign":12}],237:[function(require,module,exports){
+>>>>>>> 544648488746fc930cad5f2c97bf3f15987a5c38
 var Dispatcher = require('../dispatcher/SuperclassDispatcher.js');
 var EventEmitter = require('events').EventEmitter;
 var Constants = require('../constants/SuperclassConstants.js');
@@ -27612,11 +27836,19 @@ QuestionStore.dispatchToken = Dispatcher.register(function(payload) {
 });
 
 module.exports = QuestionStore;
+<<<<<<< HEAD
+},{"../constants/SuperclassConstants.js":232,"../dispatcher/SuperclassDispatcher.js":233,"events":6,"object-assign":12}],238:[function(require,module,exports){
+var Dispatcher = require('../dispatcher/SuperclassDispatcher.js');
+var Constants = require('../constants/SuperclassConstants.js');
+var SessionStore = require('../stores/SessionStore.react.jsx');
+var LessonStore = require('../stores/LessonStore.react.jsx');
+=======
 },{"../constants/SuperclassConstants.js":232,"../dispatcher/SuperclassDispatcher.js":233,"events":5,"object-assign":12}],238:[function(require,module,exports){
 var Dispatcher = require('../dispatcher/SuperclassDispatcher.js');
 var Constants = require('../constants/SuperclassConstants.js');
 var SessionStore = require('../stores/SessionStore.js');
 var LessonStore = require('../stores/LessonStore.js');
+>>>>>>> 544648488746fc930cad5f2c97bf3f15987a5c38
 var EventEmitter = require('events').EventEmitter;
 var assign = require('object-assign');
 
@@ -27690,8 +27922,13 @@ RouteStore.dispatchToken = Dispatcher.register( function(payload) {
 
 module.exports = RouteStore;
 
+<<<<<<< HEAD
+},{"../constants/SuperclassConstants.js":232,"../dispatcher/SuperclassDispatcher.js":233,"../routes.jsx":234,"../stores/LessonStore.react.jsx":235,"../stores/SessionStore.react.jsx":239,"events":6,"object-assign":12,"react-router":23}],239:[function(require,module,exports){
+//SessionStore.react.jsx
+=======
 },{"../constants/SuperclassConstants.js":232,"../dispatcher/SuperclassDispatcher.js":233,"../routes.jsx":234,"../stores/LessonStore.js":235,"../stores/SessionStore.js":239,"events":5,"object-assign":12,"react-router":23}],239:[function(require,module,exports){
 //SessionStore.js
+>>>>>>> 544648488746fc930cad5f2c97bf3f15987a5c38
 var SuperclassDispatcher = require('../dispatcher/SuperclassDispatcher.js');
 var SuperclassConstants = require('../constants/SuperclassConstants.js');
 var EventEmitter = require('events').EventEmitter;
@@ -27793,9 +28030,15 @@ SessionStore.dispatchToken = SuperclassDispatcher.register(function(payload) {
 
 module.exports = SessionStore;
 
+<<<<<<< HEAD
+},{"../constants/SuperclassConstants.js":232,"../dispatcher/SuperclassDispatcher.js":233,"events":6,"object-assign":12}],240:[function(require,module,exports){
+//WebAPIUtil.js
+var ServerActionCreators = require('../actions/ServerActionCreators.react.jsx');
+=======
 },{"../constants/SuperclassConstants.js":232,"../dispatcher/SuperclassDispatcher.js":233,"events":5,"object-assign":12}],240:[function(require,module,exports){
 //WebAPIUtil.js
 var ServerActionCreators = require('../actions/ServerActionCreators.js');
+>>>>>>> 544648488746fc930cad5f2c97bf3f15987a5c38
 var SuperclassConstants = require('../constants/SuperclassConstants.js');
 var request = require('superagent');
 
@@ -28031,4 +28274,8 @@ WebAPIUtils = {
 
 module.exports = WebAPIUtils;
 
+<<<<<<< HEAD
+},{"../actions/ServerActionCreators.react.jsx":212,"../constants/SuperclassConstants.js":232,"superagent":200}]},{},[1]);
+=======
 },{"../actions/ServerActionCreators.js":212,"../constants/SuperclassConstants.js":232,"superagent":200}]},{},[1]);
+>>>>>>> 544648488746fc930cad5f2c97bf3f15987a5c38

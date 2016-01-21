@@ -1,5 +1,10 @@
 var React = require('react');
+<<<<<<< HEAD
+var LessonStore = require('../../stores/LessonStore.react.jsx');
+var SessionStore = require ('../../stores/SessionStore.react.jsx');
+=======
 var LessonStore = require('../../stores/LessonStore.js');
+>>>>>>> 544648488746fc930cad5f2c97bf3f15987a5c38
 var ErrorNotice = require('../../components/common/ErrorNotice.react.jsx');
 var LessonActionCreators = require('../../actions/LessonActionCreators.js');
 var Router = require('react-router');
@@ -31,11 +36,18 @@ var LessonsPage = React.createClass({
   },
 
   render: function() {
+    var loginMessage = SessionStore.isLoggedIn() ? (<br/>)
+	    : ( <div className= "large-3 medium-10 small-12 small-centered column">
+		   <strong>Please sign in to view lessons</strong>
+		</div>);
     var errors = (this.state.errors.length > 0) ? 
     <ErrorNotice errors={this.state.errors}/> : <div></div>;
     return (
       <div>
         {errors}
+	<br/>
+	{loginMessage}
+	<br/>
         <div className="row">
           <LessonsList lessons={this.state.lessons} />
         </div>
