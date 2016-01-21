@@ -180,6 +180,7 @@ WebAPIUtils = {
       .end( function(error, res) {
         if (res) {
           if (res.error) {
+            //TODO: Uncomment code
             //var errorMsgs = _getErrors(res);
             //ServerActionCreators.receiveCreatedComment(null, errorMsgs);
           } else {
