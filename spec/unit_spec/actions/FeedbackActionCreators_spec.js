@@ -2,7 +2,7 @@
 //FeedbackActionCreators_spec.js
 var proxyquire =  require('proxyquire');
 var WebAPIUtils = jasmine.createSpyObj('WebAPIUtils', ['sendFeedback']);
-var FeedbackActionCreators = proxyquire('../../scripts/actions/FeedbackActionCreators.js', {'../utils/WebAPIUtils.js': WebAPIUtils });
+var FeedbackActionCreators = proxyquire('../../../scripts/actions/FeedbackActionCreators.js', {'../utils/WebAPIUtils.js': WebAPIUtils });
 
 describe("FeedbackActionCreators", function() {
 
