@@ -2,6 +2,9 @@ var proxyquire =  require('proxyquire');
 var WebAPIUtils = jasmine.createSpyObj('WebAPIUtils', ['loadLessons', 'loadLesson','createLesson']);
 var Dispatcher = jasmine.createSpyObj('Dispatcher', ['handleViewAction']);
 var LessonActionCreators = proxyquire('../../../scripts/actions/LessonActionCreators.js', {'../utils/WebAPIUtils.js': WebAPIUtils, '../dispatcher/SuperclassDispatcher.js': Dispatcher});
+var Constants = require('../../../scripts/constants/SuperclassConstants.js');
+var ActionTypes = Constants.ActionTypes;
+
 
 describe("LessonActionCreators", function(){
 
@@ -22,7 +25,9 @@ describe("LessonActionCreators", function(){
 		});
 
 		it("it calls Dispatcher to handleViewAction with", function(done){
-			expect(Dispatcher.handleViewAction).toHaveBeenCalledWith(DisHand);
+			expect(Dispatcher.handleViewAction).toHaveBeenCalledWith({
+				type: ActionTypes.LOAD_LESSONS
+			});
 			done();
 		});
 	});
@@ -43,6 +48,19 @@ describe("LessonActionCreators", function(){
 			expect(WebAPIUtils.loadLesson).toHaveBeenCalledWith(15);
 			done();
 		});
+
+		it("It calls Dispatcher to handleViewAction", function(done){
+			expect(Dispatcher.handleViewAction).toHaveBeenCalled();
+			done();
+		});
+
+		it("it calls Dispatcher to handleViewAction with", function(done){
+			expect(Dispatcher.handleViewAction).toHaveBeenCalledWith({
+				type: ActionTypes.LOAD_LESSON,
+				lessonId: 15
+			});
+			done();
+		});
 	});
 
 	describe("createLesson", function(){
@@ -50,7 +68,6 @@ describe("LessonActionCreators", function(){
 		var creator = "things";
 		var link = "moreThangz";
 		var summary= "moreStuffz";
-		var DisHand="moreThangz";
 
 		beforeEach(function() {
 			LessonActionCreators.createLesson(title,creator,link,summary);
@@ -63,6 +80,22 @@ describe("LessonActionCreators", function(){
 
 		it("It calls WebAPIUtils to createLesson", function(done) {
 			expect(WebAPIUtils.createLesson).toHaveBeenCalledWith("stuff","things","moreThangz","moreStuffz");
+			done();
+		});
+
+		it("It calls Dispatcher to handleViewAction", function(done){
+			expect(Dispatcher.handleViewAction).toHaveBeenCalled();
+			done();
+		});
+
+		it("it calls Dispatcher to handleViewAction with", function(done){
+			expect(Dispatcher.handleViewAction).toHaveBeenCalledWith({
+				type: ActionTypes.CREATE_LESSON,
+				title: "stuff",
+				creator: "things",
+				link: "moreThangz",
+				summary: "moreStuffz"
+			});
 			done();
 		});
 	});
