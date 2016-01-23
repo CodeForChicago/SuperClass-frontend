@@ -1,4 +1,4 @@
-var Dispatcher = require('../dispatcher/SuperclassDispatcher');
+var Dispatcher = require('../dispatcher/SuperclassDispatcher.js');
 var Constants = require('../constants/SuperclassConstants.js');
 
 var ActionTypes = Constants.ActionTypes;
