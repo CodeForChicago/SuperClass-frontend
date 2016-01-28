@@ -82,6 +82,7 @@ describe("SessionActionCreators", function() {
 			expect(Dispatcher.handleViewAction).toHaveBeenCalledWith({
 				type: ActionTypes.LOGOUT
 			});
+			done();
 		});
 	});
 });
