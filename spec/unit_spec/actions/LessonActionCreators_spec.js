@@ -7,9 +7,7 @@ var ActionTypes = Constants.ActionTypes;
 
 
 describe("LessonActionCreators", function(){
-
 	describe("loadLessons", function(){
-
 		beforeEach(function() {
 			LessonActionCreators.loadLessons();
 		});
@@ -24,7 +22,7 @@ describe("LessonActionCreators", function(){
 			done();
 		});
 
-		it("it calls Dispatcher to handleViewAction with", function(done){
+		it("it calls Dispatcher with correct hash", function(done){
 			expect(Dispatcher.handleViewAction).toHaveBeenCalledWith({
 				type: ActionTypes.LOAD_LESSONS
 			});

@@ -1,10 +1,13 @@
-var LessonStore = require('../../../scripts/stores/LessonStore.js');
-//var LessonStoreSpy = jasmine.createSpyObj('LessonStore', ['loadLessons', 'loadLesson','createLesson']);
+var proxyquire = require('proxyquire');
+var EventEmitter = { prototype: jasmine.createSpyObj('prototype', ['emit'])};
+var events = {EventEmitter: EventEmitter};
+var LessonStore = proxyquire("../../../scripts/stores/LessonStore.js",{'events':events} );
 
 describe("LessonStore", function(){
-	
-	// Test LessonStore.getLesson();
-	var getting_lesson = LessonStore.getLesson();
-	expect(getting_lesson).toEqual({ title: "", link: "", creator: "", summary: "" });
 
+	 it("Calls LessonStore to emit a change", function(done){
+		LessonStore.emitChange();
+	 	expect(EventEmitter.prototype.emit).toHaveBeenCalled();
+		done();
+	 });
 });

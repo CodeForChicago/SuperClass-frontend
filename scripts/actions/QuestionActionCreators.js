@@ -20,18 +20,11 @@ QuestionActionCreators = {
     WebAPIUtils.loadQuestion(questionId);
   },
 
-  //createQuestion: function(title, author, body) { //comments, responsecount, repcount) {
-  // we removed author from the function because the author is already tracked via the user who created the post
   createQuestion: function(title, body) {
     Dispatcher.handleViewAction({
       type: ActionTypes.CREATE_QUESTION,
       title: title,
-      //author: author,
       body: body
-        //don't include these, they will be null
-      //comments: comments,
-      //responsecount: responsecount,
-      //repcount: repcount
     });
     WebAPIUtils.createQuestion(title, body);
   },
