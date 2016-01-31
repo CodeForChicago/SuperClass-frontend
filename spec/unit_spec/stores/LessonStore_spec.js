@@ -1,11 +1,19 @@
 var proxyquire = require('proxyquire');
 var EventEmitter = { prototype: jasmine.createSpyObj('prototype', ['emit', 'on', 'removeListener'])};
 var events = {EventEmitter: EventEmitter};
-var LessonStore = proxyquire("../../../scripts/stores/LessonStore.js",{'events':events} );
+var Constants = require('../../../scripts/constants/SuperclassConstants.js');
+var callbackFunc;
+var Dispatcher = { register: function(callback) {callbackFunc = callback; } }
+var LessonStore = proxyquire("../../../scripts/stores/LessonStore.js",{'events':events, '../dispatcher/SuperclassDispatcher.js': Dispatcher} );
 
 describe("LessonStore", function(){
 	var CHANGE_EVENT = 'change';
 	var callback = function(){};
+	beforeEach(function() {
+		EventEmitter.prototype.emit.reset();
+		EventEmitter.prototype.on.reset();
+		EventEmitter.prototype.removeListener.reset();
+	});
 
 	describe("emiteChange", function(){
 		it("Calls LessonStore to emit a change", function(done){
@@ -47,6 +55,25 @@ describe("LessonStore", function(){
 		 	expect(EventEmitter.prototype.removeListener).toHaveBeenCalledWith(CHANGE_EVENT, callback);
 			done();
 		});
+	});
+
+	describe("disptachToken logic", function() {
+		describe("When action.type is RECEIVE_LESSONS", function(){
+			var payload = {
+				action: {
+					type: Constants.ActionTypes.RECEIVE_LESSONS, 
+					json: {lessons: "Helloworld"} 
+				}
+			}; 
+			it("calls lessonstore emit change", function(done){
+				callbackFunc(payload);
+				expect(EventEmitter.prototype.emit).toHaveBeenCalled();
+				done();
+
+			});
+		});
+
+
 	});
 	 
 });
