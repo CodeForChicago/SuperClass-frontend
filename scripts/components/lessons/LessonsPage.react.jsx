@@ -1,10 +1,6 @@
 var React = require('react');
-<<<<<<< HEAD
-var LessonStore = require('../../stores/LessonStore.react.jsx');
-var SessionStore = require ('../../stores/SessionStore.react.jsx');
-=======
 var LessonStore = require('../../stores/LessonStore.js');
->>>>>>> 544648488746fc930cad5f2c97bf3f15987a5c38
+var SessionStore = require ('../../stores/SessionStore.js');
 var ErrorNotice = require('../../components/common/ErrorNotice.react.jsx');
 var LessonActionCreators = require('../../actions/LessonActionCreators.js');
 var Router = require('react-router');
