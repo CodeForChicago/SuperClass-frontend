@@ -13,7 +13,6 @@ var _lesson = { title: "", link: "", creator: "", summary: "" };
 var LessonStore = assign({}, EventEmitter.prototype, {
 
   emitChange: function() {
-    console.log(CHANGE_EVENT);
     this.emit(CHANGE_EVENT);
   },
 
