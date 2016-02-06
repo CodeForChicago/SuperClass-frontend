@@ -7,13 +7,13 @@ var APIRoot = env.API_URL;
 
 Constants = {
 	APIEndpoints: {
-        LOGIN:          APIRoot + "/v1/login",
+        	LOGIN:          APIRoot + "/v1/login",
 		REGISTRATION:   APIRoot + "/v1/users",
 		LESSONS:        APIRoot + "/lessons",
 		QUESTIONS:      APIRoot + "/questions",
-        COMMENTS:       APIRoot + "/comments",
-        FEEDBACK:       APIRoot + "/feedback",
-        PROJECTS:       APIRoot + "/projects",
+        	COMMENTS:       APIRoot + "/comments",
+        	FEEDBACK:       APIRoot + "/feedback",
+        	PROJECTS:       APIRoot + "/projects",
 	},
 	// check up on QUESTIONS later
 
