@@ -1,21 +1,27 @@
 var proxyquire = require('proxyquire');
-var EventEmitter = { prototype: jasmine.createSpyObj('prototype', ['emit', 'on', 'removeListener'])};
+var eventEmitterMethods = ['emit', 'on', 'removeListener'];
+var EventEmitter = { prototype: jasmine.createSpyObj('prototype', eventEmitterMethods)};
 var events = {EventEmitter: EventEmitter};
 var Constants = require('../../../scripts/constants/SuperclassConstants.js');
 var callbackFunc;
 var Dispatcher = { register: function(callback) {callbackFunc = callback; } }
 var LessonStore = proxyquire("../../../scripts/stores/LessonStore.js",{'events':events, '../dispatcher/SuperclassDispatcher.js': Dispatcher} );
+var resetter = require("../../spec_helper.js").resetter;
+
+resetter.set( {
+	objects: [EventEmitter.prototype],
+	methods: [eventEmitterMethods]
+});
+
 
 describe("LessonStore", function(){
 	var CHANGE_EVENT = 'change';
 	var callback = function(){};
 	beforeEach(function() {
-		EventEmitter.prototype.emit.reset();
-		EventEmitter.prototype.on.reset();
-		EventEmitter.prototype.removeListener.reset();
+		resetter.resetAll();
 	});
 
-	describe("emiteChange", function(){
+	describe("emitChange", function(){
 		it("Calls LessonStore to emit a change", function(done){
 			LessonStore.emitChange();
 		 	expect(EventEmitter.prototype.emit).toHaveBeenCalled();
@@ -72,8 +78,5 @@ describe("LessonStore", function(){
 
 			});
 		});
-
-
-	});
-	 
+	});	 
 });
