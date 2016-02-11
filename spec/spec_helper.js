@@ -46,6 +46,10 @@ var Spec_Helper = {
 		init: function() {
 			global.sessionStorage = storageMock();
 			return sessionStorage
+		},
+		destroy: function() {
+			global.sessionStorage = null;
+			return null
 		}
 	}
 };
