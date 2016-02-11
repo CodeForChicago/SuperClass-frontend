@@ -1,5 +1,27 @@
 var _objects;
 var _methods;
+function storageMock() {
+    var storage = {};
+
+    return {
+      setItem: function(key, value) {
+        storage[key] = value || '';
+      },
+      getItem: function(key) {
+        return storage[key] || null;
+      },
+      removeItem: function(key) {
+        delete storage[key];
+      },
+      get length() {
+        return Object.keys(storage).length;
+      },
+      key: function(i) {
+        var keys = Object.keys(storage);
+        return keys[i] || null;
+      }
+    };
+}
 
 var Spec_Helper = {
 	resetter: {
@@ -17,6 +39,13 @@ var Spec_Helper = {
 					object[method_list[j]].reset();
 				}		
 			}
+		}
+	},
+
+	sessionStorageMock: {
+		init: function() {
+			global.sessionStorage = storageMock();
+			return sessionStorage
 		}
 	}
 };
