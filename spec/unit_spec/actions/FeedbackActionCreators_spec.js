@@ -1,13 +1,21 @@
 //jasmine_spec 
 //FeedbackActionCreators_spec.js
 var proxyquire =  require('proxyquire');
-var WebAPIUtils = jasmine.createSpyObj('WebAPIUtils', ['sendFeedback']);
+var WebAPIUtilsMethods = ['sendFeedback'];
+var WebAPIUtils = jasmine.createSpyObj('WebAPIUtils', WebAPIUtilsMethods);
 var FeedbackActionCreators = proxyquire('../../../scripts/actions/FeedbackActionCreators.js', {'../utils/WebAPIUtils.js': WebAPIUtils });
+var resetter = require("../../spec_helper.js").resetter;
+
+resetter.set({
+  objects: [WebAPIUtils],
+  methods: [WebAPIUtilsMethods]
+});
 
 describe("FeedbackActionCreators", function() {
 
   beforeEach(function() {
-	FeedbackActionCreators.sendFeedback('feedbackBody');
+    resetter.resetAll();
+	  FeedbackActionCreators.sendFeedback('feedbackBody');
   });
 
   it("Calls on WebAPIUtils to sendFeedback", function(done) {

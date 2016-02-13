@@ -1,11 +1,23 @@
 var proxyquire = require('proxyquire');
-var WebAPIUtils = jasmine.createSpyObj('WebAPIUtils', ['signup','login','logout']);
-var Dispatcher = jasmine.createSpyObj('Dispatcher',['handleViewAction'])
+var WebAPIUtilsMethods = ['signup', 'login', 'logout'];
+var WebAPIUtils = jasmine.createSpyObj('WebAPIUtils', WebAPIUtilsMethods);
+var DispatcherMethods = ['handleViewAction'];
+var Dispatcher = jasmine.createSpyObj('Dispatcher', DispatcherMethods)
 var SessionActionCreators = proxyquire('../../../scripts/actions/SessionActionCreators.js',{'../utils/WebAPIUtils.js': WebAPIUtils, '../dispatcher/SuperclassDispatcher.js': Dispatcher})
 var Constants = require('../../../scripts/constants/SuperclassConstants.js');
 var ActionTypes = Constants.ActionTypes;
+var resetter = require('../../spec_helper.js').resetter;
+
+resetter.set({
+	objects: [WebAPIUtils, Dispatcher],
+	methods: [WebAPIUtilsMethods, DispatcherMethods]
+});
 
 describe("SessionActionCreators", function() {
+	beforeEach(function() {
+		resetter.resetAll();
+	})
+
 	describe("signup", function() {
 		var user_email = "me@me.com";
 		var user_username = "my_username"; // testing input cleaning

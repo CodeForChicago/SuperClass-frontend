@@ -1,9 +1,9 @@
-var proxyquire = require('proxyquire');
-//var React = jasmine.createSpyObj('react',['createClass']);
-////var LessonStore = jasmine.createSpyObj('../../../scripts/stores/LessonStore.js');
-//var State = jasmine.createSpyObj('react-router').State;
-var LessonStore = jasmine.createSpyObj('LessonStore',['getLesson','addChangeListener','removeChangeListener','getErrors']);
-var LessonPage = proxyquire('../../../scripts/components/lessons/LessonPage.react.jsx',{/*'react':React,*/'../../../scripts/stores/LessonStore.js':LessonStore});
+// var proxyquire = require('proxyquire');
+// //var React = jasmine.createSpyObj('react',['createClass']);
+// ////var LessonStore = jasmine.createSpyObj('../../../scripts/stores/LessonStore.js');
+// //var State = jasmine.createSpyObj('react-router').State;
+// var LessonStore = jasmine.createSpyObj('LessonStore',['getLesson','addChangeListener','removeChangeListener','getErrors']);
+// var LessonPage = proxyquire('../../../scripts/components/lessons/LessonPage.react.jsx',{/*'react':React,*/'../../../scripts/stores/LessonStore.js':LessonStore});
 
 /////////////////////////////////
 // The issue appears to be that the jsx stuff in the LessonPage.react.jsx

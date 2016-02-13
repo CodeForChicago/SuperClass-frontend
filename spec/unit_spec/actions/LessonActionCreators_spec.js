@@ -1,12 +1,27 @@
 var proxyquire =  require('proxyquire');
-var WebAPIUtils = jasmine.createSpyObj('WebAPIUtils', ['loadLessons', 'loadLesson','createLesson']);
-var Dispatcher = jasmine.createSpyObj('Dispatcher', ['handleViewAction']);
+
+var WebAPIUtilsMethods = ['loadLessons', 'loadLesson', 'createLesson'];
+var WebAPIUtils = jasmine.createSpyObj('WebAPIUtils', WebAPIUtilsMethods);
+var DispatcherMethods = ['handleViewAction'];
+var Dispatcher = jasmine.createSpyObj('Dispatcher', DispatcherMethods);
+
 var LessonActionCreators = proxyquire('../../../scripts/actions/LessonActionCreators.js', {'../utils/WebAPIUtils.js': WebAPIUtils, '../dispatcher/SuperclassDispatcher.js': Dispatcher});
+var resetter = require('../../spec_helper.js').resetter;
+
 var Constants = require('../../../scripts/constants/SuperclassConstants.js');
 var ActionTypes = Constants.ActionTypes;
 
+resetter.set({
+	objects: [WebAPIUtils, Dispatcher],
+	methods: [WebAPIUtilsMethods, DispatcherMethods]
+});
 
 describe("LessonActionCreators", function(){
+
+	beforeEach(function() {
+		resetter.resetAll();
+	});
+
 	describe("loadLessons", function(){
 		beforeEach(function() {
 			LessonActionCreators.loadLessons();

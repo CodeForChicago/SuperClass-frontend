@@ -2,15 +2,28 @@
 //QuestionActionCreators_spec.js
 
 var proxyquire = require('proxyquire');
-var Dispatcher = jasmine.createSpyObj('Dispatcher', ['handleViewAction']);
-var WebAPIUtils = jasmine.createSpyObj('WebAPIUtils', ['loadQuestions', 'loadQuestion', 'createQuestion', 'addComment']);
+
+var DispatcherMethods = ['handleViewAction'];
+var Dispatcher = jasmine.createSpyObj('Dispatcher', DispatcherMethods);
+var WebAPIUtilsMethods = ['loadQuestions', 'loadQuestion', 'createQuestion', 'addComment'];
+var WebAPIUtils = jasmine.createSpyObj('WebAPIUtils', WebAPIUtilsMethods);
+
 var QuestionActionCreators = proxyquire('../../../scripts/actions/QuestionActionCreators.js', {'../dispatcher/SuperclassDispatcher.js': Dispatcher, '../utils/WebAPIUtils.js': WebAPIUtils});
+var resetter = require('../../spec_helper.js').resetter;
+
 var Constants = require('../../../scripts/constants/SuperclassConstants.js');
 var ActionTypes = Constants.ActionTypes;
 					
-
+resetter.set({
+	objects: [WebAPIUtils, Dispatcher],
+	methods: [WebAPIUtilsMethods, DispatcherMethods]
+});
 
 describe("QuestionActionCreators", function() {
+	beforeEach(function() {
+		resetter.resetAll();
+	});
+	
 	describe("loadQuestions", function() {
 		beforeEach(function() {
 			QuestionActionCreators.loadQuestions();

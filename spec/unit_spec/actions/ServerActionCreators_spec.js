@@ -1,16 +1,25 @@
 //jasmine_spec
 //ServerActionCreators_spec.js
 var proxyquire = require('proxyquire');
-//var Dispatcher = jasmine.createSpyObject('Dispatcher',['receiveLogin','receiveLessons','receiveLesson','receiveCreatedLesson','receiveQuestions', 'receiveQuestion', 'receiveCreatedQuestion','receiveCreatedComment']);
-var Dispatcher = jasmine.createSpyObj('SuperclassDispatcher',['handleServerAction']);
+var DispatcherMethods = ['handleServerAction'];
+var Dispatcher = jasmine.createSpyObj('SuperclassDispatcher',DispatcherMethods);
 var ServerActionCreators=proxyquire('../../../scripts/actions/ServerActionCreators.js',{'../dispatcher/SuperclassDispatcher.js':Dispatcher});
 var Constants = require('../../../scripts/constants/SuperclassConstants.js');
 var ActionTypes=Constants.ActionTypes;
+var resetter = require('../../spec_helper.js').resetter;
+
+resetter.set({
+	objects: [Dispatcher],
+	methods: [DispatcherMethods]
+});
 
 describe('ServerActionCreators', function(){
 	var json='jsonZZ';
 	var errors='errorZZ';
-		
+	beforeEach(function() {
+		resetter.resetAll();
+	});
+
 	describe('receiveLogin', function(){
 
 		beforeEach(function() {
