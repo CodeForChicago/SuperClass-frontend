@@ -19,5 +19,6 @@ var request = {
 	end: function(callback) {
 		res = { text: API[_currUrl], error: _currErr };
 		callback(_currErr, res);
-       	}	
+       	},
+	API: API	
 }
